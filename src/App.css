@@ -1,0 +1,103 @@
+body{
+  background-color: white;
+  color: black;
+  height: 100%;
+font-family: "poppins", sans-serif;
+} 
+::root{
+  --primary-color: #4CAF50;
+  --secondary-color: #ff5722;
+}
+
+.navlist{
+  list-style-type: none;
+  margin:0;
+  padding:0;
+  display: flex;
+  justify-content:end ;
+  text-decoration: none;
+  gap: 10%;
+
+  /* overflow:hidden; */
+  background-color: var(--primary-color);
+}
+
+.navlist li{
+  
+
+  position: relative;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navlist li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 50%;
+  height: 2px;                
+  transform-origin: left;      
+  background: #0b0b0b;               /* solid color */
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.navlist li:hover::after,
+.navlist li:focus-within::after {
+  /* transform: scaleX(1); */
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Banner blob image styles */
+.third-section{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 2rem;
+}
+.blob-wrapper {
+    width: 269px;
+    height: 301px;
+}
+.blob-image{
+  width: 100%;
+  height: 100%;
+  background-image: url('./../public/images/profile.jpeg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 45% 55% 60% 40% / 55% 40% 60% 45%;
+  animation: blob 6s infinite ease-in-out;
+  box-shadow: 0 8px 24px rgba(46, 135, 237, 0.597);
+}
+
+@keyframes blob{
+  0%{ border-radius: 45% 55% 60% 40% / 55% 40% 60% 45%; }
+  33%{ border-radius: 60% 40% 50% 50% / 45% 60% 40% 55%; }
+  66%{ border-radius: 50% 60% 45% 55% / 60% 45% 55% 40%; }
+  100%{ border-radius: 45% 55% 60% 40% / 55% 40% 60% 45%; }
+}
+
+.main-banner{
+  display: flex;
+  padding: 3rem;
+  justify-content: center;
+}
+.second-section {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.banner-subheading {
+    color: grey;
+    width: 70%;
+    font-size: large;
+    font-family: arial;
+}
+h1{
+  margin: 0;
+}
