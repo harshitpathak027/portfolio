@@ -8,7 +8,32 @@ font-family: "poppins", sans-serif;
   --primary-color: #4CAF50;
   --secondary-color: #ff5722;
 }
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.main-banner, .about-section, .right-cards {
+  flex-direction: column;
+}
 
+/* tablet+ (wider screens) */
+@media (max-width: 767px) {
+  .main-banner{ flex-direction: column-reverse; padding: 0rem !important; }
+.second-section { width: 100% !important; }
+.left-about{width: 100% !important; align-items: center; margin-bottom: 30px;}
+.banner-subheading { align-items: center; width: 100% !important;}
+.container{
+  padding: 0rem;}
+  .intro{margin-top: 30px;}
+}
+
+@media (min-width: 768px) {
+  .main-banner { flex-direction: row; padding: 3rem; }
+  .second-section { width: 50%; }
+  .about-section { flex-direction: row; align-items: flex-start; }
+  .right-cards { flex-direction: row; gap: 28px; }
+}
 .navlist{
   list-style-type: none;
   margin:0;
@@ -69,7 +94,7 @@ font-family: "poppins", sans-serif;
   background-size: cover;
   background-position: center;
   border-radius: 45% 55% 60% 40% / 55% 40% 60% 45%;
-  animation: blob 6s infinite ease-in-out;
+  animation: blob 3s infinite ease-in-out;
   box-shadow: 0 8px 24px rgba(46, 135, 237, 0.597);
 }
 
@@ -100,4 +125,148 @@ font-family: "poppins", sans-serif;
 }
 h1{
   margin: 0;
+  font-size: 3rem !important;
 }
+
+button.banner-button {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 28px;
+    cursor: pointer;
+    font-family: "poppins", sans-serif;
+}
+button.banner-button:hover {
+    background-color: var(--secondary-color);
+    background-color: grey;
+    color: white;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+}
+.left-about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    width: 50% ;
+    height: 100%;
+
+}
+.img-profile{
+  background-image: url("/images/profile.jpeg");
+  width: 400px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+   border-radius: 50%;        /* optional: make it circular */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.about-section {
+    display: flex;
+   justify-content: center;
+   padding: 40px;
+}
+.intro{
+  display: flex;
+  justify-content: center;
+  padding: 4px;
+}
+.right-cards {
+    display: flex;
+    gap: 28px;
+}
+
+.card-item {
+    padding: 14px;
+    border: 1px solid #8080804f;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+    gap: 8px;
+    text-align: center;
+}
+.item-description {
+    font-size: 10px;
+    color: grey;
+}
+.item-heading {
+    font-size: 16px;
+    color: rgba(71, 70, 70, 0.896);
+}
+
+/* icon styles */
+.item-icon .icon {
+  color: #2e7d32; /* default color */
+  font-size: 22px;
+  transition: color 0.2s ease, transform 0.12s ease;
+}
+
+/* change color when hovering the whole card-item */
+.card-item:hover .item-icon .icon {
+  color: #ff5722; /* hover color */
+
+
+  transform: translateY(-2px);
+}
+
+.card-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+}
+.right-about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+.right-content{
+  width: 400px;
+  font-size: 18px;
+  color: rgb(91, 91, 91);
+}
+/* optional: color when
+ hovering the icon itself */
+.item-icon:hover .icon {
+  color: #ff5722;
+}
+
+/* Responsive code */
+.blob-wrapper {
+  width: min(50vw, 269px);
+  height: auto;
+}
+.blob-image, .img-profile {
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* keeps square; responsive */
+  background-size: cover;
+  background-position: center;
+  max-width: 300px;
+}
+.card-item {
+  height: auto; /* avoid fixed px that break on mobile */
+  padding: 14px;
+}
+.img-profile { width: clamp(120px, 30vw, 260px); }
+.img-profile {
+  width: min(40vw, 260px);
+  height: auto;
+  object-fit: cover;    /* crop to fit container */
+  border-radius: 50%;
+  display:block;
+}
+h1 { font-size: clamp(1.25rem, 4vw, 2rem); }
+p  { font-size: clamp(0.9rem, 2.4vw, 1rem); }
+@media (max-width: 767px) {
+  .right-cards { flex-direction: row; gap: 12px; }
+  .item-icon .icon { font-size: 28px; } /* slightly smaller on mobile */
+}
+button, .banner-button {
+  min-height: 44px;
+  padding: .6rem 1rem;
+}
+
+.navlist { flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+@media (min-width: 768px) { .navlist { justify-content: flex-end; } }

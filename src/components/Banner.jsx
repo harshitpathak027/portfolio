@@ -9,11 +9,17 @@ const Banner=()=>{
 
                 </div>
                 <div className="second-section">
+                    <div className="banner-text">
+
                     <h1 className="banner-heading">Harshit Pathak</h1>
                     <div>----------- Full Stack Web Developer</div>
                     <p className="banner-subheading">I'm a skilled web developer based in India, driven by a deep passion and unwavering dedication to crafting exceptional digital experiences.
 
 </p>
+                    </div>
+                    <div className="banner-buttons"> 
+                    <button className="banner-button">Contact Me</button>
+                    </div>
                 </div>
                 <div className="third-section">
                     {/* set --blob-color inline or via CSS to change color */}
