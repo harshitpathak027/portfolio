@@ -1,3 +1,4 @@
+
 import react from "react";
 import 'boxicons/css/boxicons.min.css';
 
@@ -7,7 +8,7 @@ const About = () => {
     return (
 
         <>
-            <div className="card">
+            <div className="card ">
 
                 <div className="intro">
                     <h2>About Me</h2>
