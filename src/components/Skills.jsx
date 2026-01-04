@@ -10,9 +10,10 @@ const SkillItem = ({ label ,level}) => {
       <i
         className="
           bx bx-badge-check
-          text-gray-500
-          transition-all duration-300
-          group-hover:text-[#ff5722]
+          text-green-600
+          text-3xl
+          transition-all duration-300      
+          group-hover:text-[#f87727]
           group-hover:-translate-y-0.5
         "
       />
