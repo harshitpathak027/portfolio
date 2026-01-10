@@ -13,7 +13,7 @@ const About = () => {
             <div className="card " id="about">
 
                 <div className="intro">
-                    <h2>About Me</h2>
+                    <div className="text-2xl font-bold">About Me</div>
                 </div>
                 <div className="about-section">
 

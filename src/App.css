@@ -140,14 +140,16 @@ h1{
 
 button.banner-button {
     padding: 10px;
-    border: 1px solid black;
-    border-radius: 28px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    color: white;
+    background-color: rgb(89, 88, 88);
     cursor: pointer;
     font-family: "poppins", sans-serif;
 }
 button.banner-button:hover {
     background-color: var(--secondary-color);
-    background-color: grey;
+    background-color: rgb(40, 40, 40);
     color: white;
 }
 .card{
