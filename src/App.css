@@ -105,7 +105,7 @@ font-family: "poppins", sans-serif;
   background-position: center;
   border-radius: 45% 55% 60% 40% / 55% 40% 60% 45%;
   animation: blob 3s infinite ease-in-out;
-  box-shadow: 0 8px 24px rgba(46, 135, 237, 0.597);
+  box-shadow: 0 8px 24px 8px rgba(46, 135, 237, 0.597);
 }
 
 @keyframes blob{
@@ -279,3 +279,53 @@ button, .banner-button {
 
 .navlist { flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
 @media (min-width: 768px) { .navlist { justify-content: flex-end; } }
+
+
+
+
+.cursor-trail {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+
+  background: radial-gradient(circle, #facc15, #ca8a04);
+  box-shadow: 0 0 10px rgba(250, 204, 21, 0.9);
+
+  animation: trailFade 0.8s ease-out forwards;
+}
+
+@keyframes trailFade {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes trailFade {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}

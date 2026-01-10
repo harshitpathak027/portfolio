@@ -8,6 +8,7 @@ import About from './components/About'
 import Skills from './components/Skills'
 import Expertise from './components/Expertise'
 import Qualifications from './components/Qualifications'
+import CursorTrail from './components/CursorTrail'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +23,7 @@ function App() {
     <Skills/>
     <Expertise/>
     <Qualifications/>
+    <CursorTrail/>
     </div>
     </>
   )
