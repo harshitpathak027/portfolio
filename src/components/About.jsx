@@ -1,10 +1,12 @@
 
 import react from "react";
 import 'boxicons/css/boxicons.min.css';
+import { useDarkMode } from "./DarkModeContext";
 
 
 
 const About = () => {
+    const {darkMode, setDarkMode} = useDarkMode();
     return (
 
         <>
@@ -20,19 +22,18 @@ const About = () => {
                     </div>
                     <div className="right-about">
                         <div className="right-cards">
-                            <div className="card-item">
+                            <div className={`card-item ${darkMode?'border border-white':'border border-gray-300'}`}>
                                 <div className="item-icon">
                                     <i className="bx bx-check-shield icon" />
                                 </div>
                                 <div className="item-heading">
                                     Experience
                                 </div>
-                                <div className="item-description">
+                                <div className={`item-description ${darkMode ? 'text-white' : 'text-gray-600'}`}>
                                     1+ Years of Working
                                 </div>
                             </div>
-                            <div className="card-item">
-                                <div className="item-icon">
+         <div className={`card-item ${darkMode?'border border-white':'border border-gray-300'}`}>                                <div className="item-icon">
                                     {/* use a valid icon name */}
                                     <i className="bx bx-badge-check icon" />
                                 </div>
@@ -43,7 +44,7 @@ const About = () => {
                                     5+ Projects
                                 </div>
                             </div>
-                            <div className="card-item">
+                                  <div className={`card-item ${darkMode?'border border-white':'border border-gray-300'}`}>
                                 <div className="item-icon">
                                     <i className="bx bx-happy-beaming icon" />
                                 </div>
