@@ -7,19 +7,21 @@ import NavBar from './components/Navbar'
 import About from './components/About'
 import Skills from './components/Skills'
 import Expertise from './components/Expertise'
+import Qualifications from './components/Qualifications'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    <NavBar/>
     <div className='container'>
 
-    <NavBar/>
     <Banner/>
     <About/>
     <Skills/>
     <Expertise/>
+    <Qualifications/>
     </div>
     </>
   )

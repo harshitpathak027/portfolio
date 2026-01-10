@@ -8,7 +8,7 @@ const About = () => {
     return (
 
         <>
-            <div className="card ">
+            <div className="card " id="about">
 
                 <div className="intro">
                     <h2>About Me</h2>
