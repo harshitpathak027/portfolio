@@ -4,7 +4,7 @@ const Banner=()=>{
     return (
         <>
         <div className="banner" id="home">
-            <div className="main-banner">
+            <div className="main-banner m-9 md:m-0">
                 <div className="first-section">
 
                 </div>

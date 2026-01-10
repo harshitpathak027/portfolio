@@ -33,7 +33,7 @@ const SkillItem = ({ label ,level}) => {
 
 const Skills = () => {
   return (
-    <section className="skills-section p-7">
+    <section className="skills-section p-7" id="skills">
       <h2 className="text-center text-xl p-10 font-semibold">
         My Skills
       </h2>
