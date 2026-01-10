@@ -2,6 +2,7 @@
 /* tailwindcss */
 
 import React from "react";
+import { useDarkMode } from "./DarkModeContext";
 
 const SkillItem = ({ label ,level}) => {
   return (
@@ -32,6 +33,7 @@ const SkillItem = ({ label ,level}) => {
 };
 
 const Skills = () => {
+  const { darkMode, setDarkMode } = useDarkMode();
   return (
     <section className="skills-section p-7" id="skills">
       <h2 className="text-center text-xl p-10 font-semibold">
@@ -41,7 +43,7 @@ const Skills = () => {
       <div className="flex flex-col md:flex-row gap-10 justify-center items-start">
 
         {/* FRONTEND CARD */}
-        <div className="border border-black p-4 rounded-lg w-full md:w-1/2">
+        <div className={`border  p-4 rounded-lg w-full md:w-1/2 ${darkMode ? "border-white":"border-black"}`}>
           <h3 className="font-bold text-center mb-4">
             Frontend Developer Skills
           </h3>
@@ -57,7 +59,7 @@ const Skills = () => {
         </div>
 
         {/* BACKEND CARD */}
-        <div className="border border-black p-4 rounded-lg w-full md:w-1/2">
+        <div className={`border  p-4 rounded-lg w-full md:w-1/2 ${darkMode ? "border-white":"border-black"}`}>
           <h3 className="font-bold text-center mb-4">
             Backend Developer Skills
           </h3>

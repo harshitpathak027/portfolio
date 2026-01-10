@@ -8,9 +8,9 @@ export const DarkModeProvider = ({ children }) => {
 
   // optional: persist in localStorage
   useEffect(() => {
-    const saved = localStorage.getItem("darkMode");
+const saved= JSON.parse(localStorage.getItem("darkMode"));
     if (saved) {
-      setDarkMode(JSON.parse(saved));
+      setDarkMode(saved);
     }
   }, []);
 
@@ -20,9 +20,11 @@ export const DarkModeProvider = ({ children }) => {
 
     if (darkMode) {
       body.classList.add("bg-slate-900", "text-white");
+localStorage.setItem("darkMode", JSON.stringify(darkMode));
       body.classList.remove("bg-white", "text-black");
     } else {
       body.classList.add("bg-white", "text-black");
+      localStorage.removeItem("darkMode");
       body.classList.remove("bg-slate-900", "text-white");
     }
   }, [darkMode]);

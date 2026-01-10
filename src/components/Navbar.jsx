@@ -4,7 +4,6 @@ import { useDarkMode } from "./DarkModeContext";
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 const { darkMode, setDarkMode } = useDarkMode( );
-console.log("Dark Mode in NavBar:", darkMode);
   return (
     <nav
       className="

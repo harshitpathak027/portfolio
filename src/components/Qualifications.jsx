@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { useDarkMode } from "./DarkModeContext";
 
 const Qualifications = () => {
 
-    const [selectedTab, setSelectedTab] = useState("Education")
-    console.log(selectedTab);
+    const [selectedTab, setSelectedTab] = useState("Education");
+    const { darkMode, setDarkMode } = useDarkMode();
 
     return (
         <>
@@ -15,13 +16,20 @@ const Qualifications = () => {
 
                     <div className={`flex items-center justify-center text-xl md:text-3xl cursor-pointer  gap-2  `} onClick={() => { setSelectedTab("Education") }} >
                        <svg  xmlns="http://www.w3.org/2000/svg" 
-fill="currentColor" viewBox="0 0 24 24" className={`h-8 w-8 ${selectedTab==="Education" ? "text-orange-500":"text-black"}`} >
+fill="currentColor" viewBox="0 0 24 24" className={`h-8 w-8 ${
+  selectedTab === "Education"
+    ? "text-orange-500"
+    : darkMode
+    ? "text-white"
+    : "text-black"
+}`}
+ >
 <path d="M9 11h2v2H9zm0-4h2v2H9zm4 4h2v2h-2zm0-4h2v2h-2z"></path><path d="M21 9h-3V5h1V3H5v2h1v4H3c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h18c.55 0 1-.45 1-1V10c0-.55-.45-1-1-1M4 11h2v8H4zm6 4v4H8V5h8v14h-2v-4zm10 4h-2v-8h2z"></path>
 </svg>
                        Education</div>
                     <div className="flex justify-center items-center text-xl md:text-3xl cursor-pointer gap-2 " onClick={() => { setSelectedTab("Experience") }}>
                         <svg xmlns="http://www.w3.org/2000/svg" 
-                            fill="currentColor"  viewBox="0 0 24 24" className={`h-8 w-8 ${selectedTab==="Experience" ? "text-orange-500":"text-black"}`} >
+                            fill="currentColor"  viewBox="0 0 24 24" className={`h-8 w-8 ${selectedTab==="Experience" ? "text-orange-500":darkMode ? "text-white":"text-black"} `} >
                             <path d="M20 6h-3V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2M9 4h6v2H9zM8 8h12v3.07l-.83.39a16.78 16.78 0 0 1-14.34 0L4 11.07V8zM4 20v-6.72c2.54 1.19 5.27 1.79 8 1.79s5.46-.6 8-1.79V20z"></path>
                         </svg>
                         Experience</div>
