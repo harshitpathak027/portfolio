@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /build/
+Disallow: /dist/
+
+Sitemap: https://harshitpathak.netlify.app/sitemap.xml

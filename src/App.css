@@ -105,11 +105,15 @@ body.bg-slate-900{
 .blob-wrapper {
     width: 269px;
     height: 301px;
+    margin-top: 40px; /* move blob down */
+}
+@media (max-width: 767px) {
+  .blob-wrapper { margin-top: 20px; }
 }
 .blob-image{
   width: 100%;
   height: 100%;
-  background-image: url('./../public/images/profile.jpeg');
+  background-image: url('./../public/images/square-image.jpg');
   background-size: cover;
   background-position: center;
   border-radius: 45% 55% 60% 40% / 55% 40% 60% 45%;

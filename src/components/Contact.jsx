@@ -48,26 +48,26 @@ const handleSubmit=(e)=>{
             <div className="flex flex-col md:flex-row justify-around p-4 gap-10">
                 {/* Left side contact info */}
                 <div className="flex flex-col gap-6">
-                    <div className="text-center border border-gray-400 p-6 rounded-lg">
+                    <a href="mailto:harshitpathak027@gmail.com" className="text-center border border-gray-400 p-6 rounded-lg block hover:bg-gray-50 dark:hover:bg-slate-800" rel="noopener noreferrer">
                         <div>Email</div>
                         <div className="text-gray-500">
                             harshitpathak027@gmail.com
                         </div>
-                    </div>
+                    </a>
 
-                    <div className="text-center border border-gray-400 p-6 rounded-lg">
+                    <a href="https://wa.me/916395133813" target="_blank" rel="noopener noreferrer" className="text-center border border-gray-400 p-6 rounded-lg block hover:bg-gray-50 dark:hover:bg-slate-800">
                         <div>Whatsapp</div>
                         <div className="text-gray-500">
                             (+91) 6395133813
                         </div>
-                    </div>
+                    </a>
 
-                    <div className="text-center border border-gray-400 p-6 rounded-lg">
+                    <a href="https://www.linkedin.com/in/harshit-pathak-7914ab348" target="_blank" rel="noopener noreferrer" className="text-center border border-gray-400 p-6 rounded-lg block hover:bg-gray-50 dark:hover:bg-slate-800">
                         <div>Linkedin</div>
                         <div className="text-gray-500">
                             harshit-pathak-7914ab348
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 {/* Right side form */}
