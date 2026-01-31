@@ -3,7 +3,14 @@ import { useDarkMode } from "./DarkModeContext";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-const { darkMode, setDarkMode } = useDarkMode( );
+  const [toggleClicked, setToggleClicked] = useState(false);
+  const { darkMode, setDarkMode } = useDarkMode();
+
+  const handleDarkModeToggle = () => {
+    setToggleClicked(true);
+    setDarkMode(!darkMode);
+    setTimeout(() => setToggleClicked(false), 500);
+  };
 
   // Play a short bounce on touch devices when a dock item is tapped.
   const handleDockTap = (e) => {
@@ -43,7 +50,10 @@ const { darkMode, setDarkMode } = useDarkMode( );
       </div>
 
  
-      <div className="cursor-pointer" onClick={() => setDarkMode(!darkMode)}>
+      <div 
+        className={`dark-mode-toggle ${toggleClicked ? 'clicked' : ''}`} 
+        onClick={handleDarkModeToggle}
+      >
         {darkMode ? (
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
             <path d="M6.99 12c0 2.76 2.25 5.01 5.01 5.01s5.01-2.25 5.01-5.01S14.76 6.99 12 6.99 6.99 9.24 6.99 12M12 8.99c1.66 0 3.01 1.35 3.01 3.01s-1.35 3.01-3.01 3.01S8.99 13.66 8.99 12 10.34 8.99 12 8.99M13 19h-2v2h2zM11 5h2V3h-2zm-8 6h2v2H3zm16 0h2v2h-2zM4.93 17.66l.71.7.7.71.71-.71.71-.7-.71-.71-.71-.71-.7.71zM17.66 4.93l-.71.71-.71.7.71.71.71.71.7-.71.71-.71-.71-.7zM4.93 6.34l.71.71.7.71.71-.71.71-.71-.71-.7-.71-.71-.7.71zm12.73 12.73.7-.71.71-.7-.71-.71-.7-.71-.71.71-.71.71.71.7z" />
@@ -86,7 +96,10 @@ const { darkMode, setDarkMode } = useDarkMode( );
     <a href="#contact" className="dock-item" onTouchStart={handleDockTap}>
       <span className="dock-bounce">✉️</span>
     </a>
-    <div className="cursor-pointer" onClick={() => setDarkMode(!darkMode)}>
+    <div 
+      className={`dark-mode-toggle ${toggleClicked ? 'clicked' : ''}`} 
+      onClick={handleDarkModeToggle}
+    >
         {darkMode ? (
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
             <path d="M6.99 12c0 2.76 2.25 5.01 5.01 5.01s5.01-2.25 5.01-5.01S14.76 6.99 12 6.99 6.99 9.24 6.99 12M12 8.99c1.66 0 3.01 1.35 3.01 3.01s-1.35 3.01-3.01 3.01S8.99 13.66 8.99 12 10.34 8.99 12 8.99M13 19h-2v2h2zM11 5h2V3h-2zm-8 6h2v2H3zm16 0h2v2h-2zM4.93 17.66l.71.7.7.71.71-.71.71-.7-.71-.71-.71-.71-.7.71zM17.66 4.93l-.71.71-.71.7.71.71.71.71.7-.71.71-.71-.71-.7zM4.93 6.34l.71.71.7.71.71-.71.71-.71-.71-.7-.71-.71-.7.71zm12.73 12.73.7-.71.71-.7-.71-.71-.7-.71-.71.71-.71.71.71.7z" />

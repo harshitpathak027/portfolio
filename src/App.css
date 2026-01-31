@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 *{
-scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
+
+/* Dark mode transition animation */
+body.transition-mode {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
 /* Body background is controlled by classes added by DarkModeContext
    Use `body.bg-white` for light mode and `body.bg-slate-900` for dark mode */
 body.bg-white{
@@ -22,6 +28,43 @@ body.bg-slate-900{
   height: 100%;
   padding-bottom: 90px;
   font-family: "poppins", sans-serif;
+}
+
+/* Dark mode toggle icon animation */
+.dark-mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dark-mode-toggle:hover {
+  transform: rotate(20deg) scale(1.1);
+}
+
+.dark-mode-toggle:active {
+  transform: rotate(20deg) scale(0.95);
+}
+
+.dark-mode-toggle svg {
+  transition: transform 0.3s ease-in-out;
+}
+
+.dark-mode-toggle.clicked svg {
+  animation: spin 0.5s ease-in-out;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 ::root{
   --primary-color: #4CAF50;
