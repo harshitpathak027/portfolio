@@ -51,6 +51,9 @@ flex
           <a href="#skills" >Skills</a>
         </li>
         <li className="nav-item">
+          <a href="#qualification" >Qualifications</a>
+        </li>
+        <li className="nav-item">
           <a href="#contact" >Contact</a>
         </li>
       </ul>

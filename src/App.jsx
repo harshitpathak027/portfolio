@@ -9,6 +9,7 @@ import Skills from './components/Skills'
 import Expertise from './components/Expertise'
 import Qualifications from './components/Qualifications'
 import CursorTrail from './components/CursorTrail'
+import Contact from './components/Contact'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +25,7 @@ function App() {
     <Expertise/>
     <Qualifications/>
     <CursorTrail/>
+    <Contact/>
     </div>
     </>
   )

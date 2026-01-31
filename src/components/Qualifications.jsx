@@ -8,7 +8,7 @@ const Qualifications = () => {
 
     return (
         <>
-            <h2 className="text-5xl text-center mb-2">Qualifications</h2>
+            <h2 className="text-5xl text-center mb-2" id ="qualification">Qualifications</h2>
             <div className="text-xl text-center mb-4">My Steps</div>
 
             <section>
