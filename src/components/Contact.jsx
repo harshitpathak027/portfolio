@@ -85,8 +85,8 @@ const handleSubmit=(e)=>{
  text-gray-400 transition-all duration-300 peer-valid:top-0 peer-valid:text-sm peer-focus:top-0 peer-focus:text-sm peer-focus:text-orange-500 ${inputBg}`}>Name</label>
                 </div>
                 <div className="relative w-full">
-                    <input onChange={handleChange} name="email" required type="email" value={form.email}  className={`peer w-full border-2 border-gray-300 px-4 py-4 rounded-md outline-none ${darkMode?"bg-slate-900":"bg-white"}`}  />
-                    <label className={`absolute left-4 top-1/2 -translate-y-1/2  px-1 pointer-events-none ${inputBg}
+                    <input placeholder=" " onChange={handleChange} name="email" required type="email" value={form.email}  className={`peer w-full border-2 border-gray-300 px-4 py-4 rounded-md outline-none ${darkMode?"bg-slate-900":"bg-white"}`}  />
+                    <label className={`absolute left-4 top-1/2 -translate-y-1/2  px-1 pointer-events-none ${inputBg} 
  text-gray-400 transition-all duration-300 peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-sm peer-focus:top-0 peer-focus:text-sm peer-focus:text-orange-500`}>Email</label>
                 </div>
                 <div className="relative w-full">

@@ -9,6 +9,7 @@ body{
   background-color: white;
   color: black;
   height: 100%;
+  padding-bottom: 90px;
 font-family: "poppins", sans-serif;
 } 
 .dark{
@@ -330,4 +331,65 @@ button, .banner-button {
     transform: scale(0);
     opacity: 0;
   }
+}
+/* =========================
+   DOCK ITEM (SCALE LAYER)
+   ========================= */
+   @media (max-width: 768px) { .dock-item { width: 24px !important; } }
+.dock-item {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+/* Scale stays WHILE hovering */
+.dock-item:hover {
+  transform: scale(1.95);
+  /* background: rgba(255, 255, 255, 0.25); */
+}
+
+/* =========================
+   ICON (BOUNCE LAYER)
+   ========================= */
+.dock-bounce {
+  font-size: 26px;
+  display: inline-block;
+}
+
+/* Up–Down bounce animation */
+@keyframes dock-bounce-y {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+  75% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Bounce runs continuously WHILE hovering */
+.dock-item:hover .dock-bounce {
+  animation: dock-bounce-y 0.9s ease infinite;
+}
+
+/* Mobile tap support (no double tap) */
+.dock-item:active .dock-bounce {
+  animation: dock-bounce-y 0.9s ease infinite;
 }

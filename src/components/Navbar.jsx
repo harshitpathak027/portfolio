@@ -5,12 +5,13 @@ const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 const { darkMode, setDarkMode } = useDarkMode( );
   return (
+    <>
     <nav
       className="
-        fixed left-0 right-0 z-50
+        fixed left-0 right-0 z-50 
         top-0 md:bottom-auto md:top-0
         flex items-center justify-between
-        px-6 py-0 md:py-3
+        px-6 py-3 md:py-3
         shadow-md
         gap-4 md:gap-0
         bg-white/10 backdrop-blur-lg
@@ -22,41 +23,7 @@ const { darkMode, setDarkMode } = useDarkMode( );
         Harshit Pathak
       </div>
 
-      {/* NAV ITEMS */}
-  <ul
-  className={`
-    md:static
-    flex-row
-    gap-4 md:gap-6
-    text-center
-    md:p-0
-flex
-    transition-all duration-300 ease-out
-
-    ${menuOpen
-      ? "opacity-100 translate-y-0 pointer-events-auto"
-      : "opacity-0 translate-y-4 pointer-events-none"}
-
-    md:flex md:opacity-100 md:translate-y-0 md:pointer-events-auto
-  `}
->
-
-        <li className="nav-item">
-          <a href="#home" >Home</a>
-        </li>
-        <li className="nav-item">
-          <a href="#about" >About</a>
-        </li>
-        <li className="nav-item">
-          <a href="#skills" >Skills</a>
-        </li>
-        <li className="nav-item">
-          <a href="#qualification" >Qualifications</a>
-        </li>
-        <li className="nav-item">
-          <a href="#contact" >Contact</a>
-        </li>
-      </ul>
+ 
       <div className="cursor-pointer" onClick={() => setDarkMode(!darkMode)}>
         {
             darkMode ?
@@ -74,13 +41,42 @@ fill="#000000" viewBox="0 0 24 24" >
 }
       </div>
       {/* Mobile Menu Button */}
-      <button
-        className="ml-auto right-0 md:hidden  text-2xl"
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        {menuOpen ? "✕" : "☰"}
-      </button>
+ 
     </nav>
+     <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 ">
+        <div
+          className="
+            flex items-center gap-10
+            px-6 py-3
+            rounded-2xl
+            shadow-xl
+            backdrop-blur-xl
+            border border-white/20
+            bg-white/90 dark:bg-black/25
+          "
+        >
+           <a href="#home" className="dock-item">
+      <span className="dock-bounce">🏠</span>
+    </a>
+
+    <a href="#about" className="dock-item">
+      <span className="dock-bounce">👤</span>
+    </a>
+
+    <a href="#skills" className="dock-item">
+      <span className="dock-bounce">🛠</span>
+    </a>
+
+    <a href="#qualification" className="dock-item">
+      <span className="dock-bounce">🎓</span>
+    </a>
+
+    <a href="#contact" className="dock-item">
+      <span className="dock-bounce">✉️</span>
+    </a>
+        </div>
+      </div>
+      </>
   );
 };
 
