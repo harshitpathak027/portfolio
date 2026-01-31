@@ -344,24 +344,65 @@ button, .banner-button {
 .glass {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  background-color: rgba(255,255,255,0.85);
-  border: 1px solid rgba(0,0,0,0.06);
+  background-color: transparent;
+  border: 1px solid rgba(0,0,0,0.04);
   color: inherit;
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+/* Navbar-specific glass (lighter/near-transparent in light mode) */
+.glass-navbar {
+  background-color: transparent;
+  border: 1px solid rgba(0,0,0,0.02);
+}
+
+/* Dock-specific glass (more opaque white in light mode) */
+.glass-dock {
+  background-color: rgba(255,255,255,0.90);
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
 /* Dark-mode (body gets `bg-slate-900` and `text-white` in DarkModeContext) */
 /* Glass variants tuned for dark (slate) and light modes */
 body.bg-slate-900 .glass {
-  background-color: rgba(255,255,255,0.04); /* faint light overlay */
+  /* subtle light overlay on dark background for frosted look */
+  background-color: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.06);
   color: #fff;
 }
 
-body.bg-white .glass {
-  /* subtle dark tint over white for 'dark-light' glassy look */
+/* light-mode tweaks for navbar and dock */
+
+body.bg-white .glass-navbar {
+  /* visible frosted white for navbar in light mode */
+  background-color: rgba(255,255,255,0.60);
+  border: 1px solid rgba(0,0,0,0.04);
+  color: #000;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.04);
+}
+
+body.bg-white .glass-dock {
+  /* dark-light glassy dock in light mode: subtle dark tint over white */
   background-color: rgba(2,6,23,0.06);
+  background-image: linear-gradient(rgba(2,6,23,0.06), rgba(2,6,23,0.04));
   border: 1px solid rgba(0,0,0,0.06);
   color: #000;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background-color 180ms ease, box-shadow 180ms ease, transform 120ms ease;
+}
+
+/* ensure a subtle overlay for dock in dark mode too */
+body.bg-slate-900 .glass-dock {
+  /* dock overlay in dark mode: faint light frosted look */
+  background-color: rgba(255,255,255,0.06);
+  background-image: linear-gradient(rgba(255,255,255,0.03), rgba(255,255,255,0.06));
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(2,6,23,0.32);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 /* Slight stronger blur on mobile for clearer glass effect */
 @media (max-width: 640px) {
@@ -384,11 +425,12 @@ body.bg-white .glass {
   -webkit-tap-highlight-color: transparent;
 
   transition: transform 0.25s ease, background 0.25s ease;
+  will-change: transform;
 }
 
 /* Scale stays WHILE hovering */
 .dock-item:hover {
-  transform: scale(1.95);
+  transform: scale(1.9);
   /* background: rgba(255, 255, 255, 0.25); */
 }
 
@@ -398,41 +440,40 @@ body.bg-white .glass {
 .dock-bounce {
   font-size: 26px;
   display: inline-block;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 /* Up–Down bounce animation */
 @keyframes dock-bounce-y {
-  0% {
-    transform: translateY(0);
-  }
-  25% {
-    transform: translateY(-5px);
-  }
-  50% {
-    transform: translateY(4px);
-  }
-  75% {
-    transform: translateY(-6px);
-  }
-  100% {
-    transform: translateY(0);
+  0% { transform: translate3d(0,0,0); }
+  25% { transform: translate3d(0,-5px,0); }
+  50% { transform: translate3d(0,4px,0); }
+  75% { transform: translate3d(0,-6px,0); }
+  100% { transform: translate3d(0,0,0); }
+}
+
+/* Hover: run continuous bounce only on devices that support hover (desktop) */
+@media (hover: hover) and (pointer: fine) {
+  .dock-item:hover .dock-bounce {
+    animation: dock-bounce-y 0.9s ease infinite;
   }
 }
 
-/* Bounce runs continuously WHILE hovering */
-.dock-item:hover .dock-bounce {
-  animation: dock-bounce-y 0.9s ease infinite;
-}
-
-/* Mobile tap support (no double tap) */
-.dock-item:active .dock-bounce {
-  animation: dock-bounce-y 0.9s ease infinite;
-}
-
-/* Mobile: on tap (active) play the bounce only twice, not infinite */
-@media (max-width: 767px) {
+/* Touch devices: on tap (active) play the bounce only twice */
+@media (hover: none) and (pointer: coarse), (max-width: 767px) {
   .dock-item:active .dock-bounce {
     animation: dock-bounce-y 0.9s ease;
     animation-iteration-count: 2;
   }
+}
+
+/* Disable :active-driven animation on touch devices so JS controls it */
+@media (hover: none) and (pointer: coarse) {
+  .dock-item:active .dock-bounce { animation: none !important; }
+}
+
+/* JS-driven touch animation class (plays twice) */
+.dock-touch-anim {
+  animation: dock-bounce-y 0.75s cubic-bezier(.2,.8,.2,1) 2;
 }
