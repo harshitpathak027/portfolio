@@ -383,7 +383,7 @@ body.bg-white .glass-navbar {
 
 body.bg-white .glass-dock {
   /* dark-light glassy dock in light mode: subtle dark tint over white */
-  background-color: rgba(2,6,23,0.06);
+  background-color: rgba(2,6,23,0.1);
   background-image: linear-gradient(rgba(2,6,23,0.06), rgba(2,6,23,0.04));
   border: 1px solid rgba(0,0,0,0.06);
   color: #000;
