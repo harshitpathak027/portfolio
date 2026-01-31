@@ -464,7 +464,7 @@ body.bg-slate-900 .glass-dock {
 @media (hover: none) and (pointer: coarse), (max-width: 767px) {
   .dock-item:active .dock-bounce {
     animation: dock-bounce-y 0.9s ease;
-    animation-iteration-count: 2;
+    animation-iteration-count: 1;
   }
 }
 
