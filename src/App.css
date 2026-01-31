@@ -429,9 +429,10 @@ body.bg-white .glass {
   animation: dock-bounce-y 0.9s ease infinite;
 }
 
-/* Always-on bounce for mobile devices */
+/* Mobile: on tap (active) play the bounce only twice, not infinite */
 @media (max-width: 767px) {
-  .dock-bounce {
-    animation: dock-bounce-y 0.9s ease infinite;
+  .dock-item:active .dock-bounce {
+    animation: dock-bounce-y 0.9s ease;
+    animation-iteration-count: 2;
   }
 }
