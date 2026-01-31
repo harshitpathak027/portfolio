@@ -5,15 +5,23 @@
 *{
 scroll-behavior: smooth;
 }
-body{
-  background-color: white;
-  color: black;
+/* Body background is controlled by classes added by DarkModeContext
+   Use `body.bg-white` for light mode and `body.bg-slate-900` for dark mode */
+body.bg-white{
+  background-color: #ffffff;
+  color: #000000;
   height: 100%;
   padding-bottom: 90px;
-font-family: "poppins", sans-serif;
-} 
-.dark{
-  background-color: black;
+  font-family: "poppins", sans-serif;
+}
+
+body.bg-slate-900{
+  /* Tailwind's slate-900 approximated */
+  background-color: #0f172a;
+  color: #ffffff;
+  height: 100%;
+  padding-bottom: 90px;
+  font-family: "poppins", sans-serif;
 }
 ::root{
   --primary-color: #4CAF50;
@@ -332,6 +340,33 @@ button, .banner-button {
     opacity: 0;
   }
 }
+/* Glassy navbar styles that work whether dark is toggled via body classes */
+.glass {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255,255,255,0.85);
+  border: 1px solid rgba(0,0,0,0.06);
+  color: inherit;
+}
+
+/* Dark-mode (body gets `bg-slate-900` and `text-white` in DarkModeContext) */
+/* Glass variants tuned for dark (slate) and light modes */
+body.bg-slate-900 .glass {
+  background-color: rgba(255,255,255,0.04); /* faint light overlay */
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #fff;
+}
+
+body.bg-white .glass {
+  /* subtle dark tint over white for 'dark-light' glassy look */
+  background-color: rgba(2,6,23,0.06);
+  border: 1px solid rgba(0,0,0,0.06);
+  color: #000;
+}
+/* Slight stronger blur on mobile for clearer glass effect */
+@media (max-width: 640px) {
+  .glass { -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+}
 /* =========================
    DOCK ITEM (SCALE LAYER)
    ========================= */
@@ -392,4 +427,11 @@ button, .banner-button {
 /* Mobile tap support (no double tap) */
 .dock-item:active .dock-bounce {
   animation: dock-bounce-y 0.9s ease infinite;
+}
+
+/* Always-on bounce for mobile devices */
+@media (max-width: 767px) {
+  .dock-bounce {
+    animation: dock-bounce-y 0.9s ease infinite;
+  }
 }

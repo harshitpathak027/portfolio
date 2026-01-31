@@ -8,15 +8,16 @@ const { darkMode, setDarkMode } = useDarkMode( );
     <>
     <nav
       className="
-        fixed left-0 right-0 z-50 
+        glass
+        fixed left-0 right-0 z-50
         top-0 md:bottom-auto md:top-0
         flex items-center justify-between
         px-6 py-3 md:py-3
         shadow-md
         gap-4 md:gap-0
-        bg-white/10 backdrop-blur-lg
-        border-b border-white/30
+        
       "
+      style={{ WebkitBackdropFilter: 'blur(20px)', backdropFilter: 'blur(10px)' }}
     >
       {/* Logo */}
       <div className="text-2xl hidden md:flex text-red-700">
@@ -46,13 +47,11 @@ fill="#000000" viewBox="0 0 24 24" >
      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 ">
         <div
           className="
+            glass
             flex items-center gap-10
             px-6 py-3
             rounded-2xl
             shadow-xl
-            backdrop-blur-xl
-            border border-white/20
-            bg-white/90 dark:bg-black/25
           "
         >
            <a href="#home" className="dock-item">
