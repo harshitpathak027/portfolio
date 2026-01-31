@@ -13,9 +13,7 @@ const Banner=()=>{
 
                     <h1 className="banner-heading">Harshit Pathak</h1>
                     <div>----------- Full Stack Web Developer</div>
-                    <p className="banner-subheading">I'm a skilled web developer based in India, driven by a deep passion and unwavering dedication to crafting exceptional digital experiences.
-
-</p>
+                    <p className="banner-subheading">Building responsive, scalable web solutions with modern technologies. Turning ideas into elegant digital experiences that users love.</p>
                     </div>
                     <div className="banner-buttons"> 
                     <a

@@ -57,9 +57,7 @@ const About = () => {
                             </div>
                         </div>
                         <div className="right-content">
-                            As a web developer, I craft user-friendly web pages with a focus on exceptional UI/UX design. With extensive experience and a proven track record of client satisfaction.
-<br></br>
-I bring expertise in Data Structures and Algorithms, honing my skills on platforms like LeetCode, GeeksforGeeks and more.
+                            Full Stack Web Developer crafting responsive, user-centric digital experiences with exceptional UI/UX design. I translate complex requirements into elegant, scalable solutions. Passionate about Data Structures and Algorithms, with 1000+ problems solved on competitive programming platforms. Always learning and pushing boundaries in modern web development.
                         </div>
                     </div>
                 </div>
