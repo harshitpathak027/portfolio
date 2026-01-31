@@ -35,7 +35,7 @@ const { darkMode, setDarkMode } = useDarkMode( );
         shadow-md
         gap-4 md:gap-0
       "
-      style={{ WebkitBackdropFilter: 'blur(20px)', backdropFilter: 'blur(10px)' }}
+      style={{ WebkitBackdropFilter: 'blur(10px)', backdropFilter: 'blur(10px)' }}
     >
       {/* Logo */}
       <div className="text-2xl hidden md:flex text-red-700">
