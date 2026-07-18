@@ -303,20 +303,11 @@ body.bg-slate-900{
 /* Apply the same orange underline used in projects to generic cards */
 .card::after,
 .card-item::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 3px;
-  background: rgba(249,115,22,0.95);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 300ms ease;
+  display: none !important;
 }
 .card:hover::after,
 .card-item:hover::after {
-  transform: scaleX(1);
+  display: none !important;
 }
 
 .container{
