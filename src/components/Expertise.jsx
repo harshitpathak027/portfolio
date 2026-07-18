@@ -44,7 +44,7 @@ const Expertise = () => {
         <section className={`expertise-section px-7 py-16 ${darkMode ? "bg-slate-900" : "bg-transparent"}`}>
             <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-4 text-center">
                 <p className="text-sm uppercase tracking-[0.35em] text-green-500">Expertise</p>
-                <h2 className={`text-4xl font-semibold md:text-5xl ${darkMode ? "text-white" : "text-gray-900"}`}>
+                <h2 className={`text-4xl font-semibold md:text-5xl accent-underline accent-orange ${darkMode ? "text-white" : "text-gray-900"}`}>
                     A practical summary of what I build and solve
                 </h2>
                 <p className={`max-w-3xl text-sm md:text-base ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
@@ -55,7 +55,7 @@ const Expertise = () => {
                 {expertiseItems.map((item) => (
                     <article
                         key={item.title}
-                        className={`group flex min-h-[280px] flex-col justify-between rounded-3xl border p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${darkMode ? "border-slate-700 bg-slate-800 hover:border-slate-600" : "border-gray-200 bg-white hover:border-gray-300"}`}
+                        className={`group flex min-h-[280px] flex-col justify-between rounded-3xl border p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg accent-glow green accent-animate ${darkMode ? "border-slate-700 bg-slate-800 hover:border-slate-600" : "border-gray-200 bg-white hover:border-gray-300"}`}
                     >
                         <div className="flex items-start justify-between gap-4">
                             <div className="rounded-2xl bg-green-50 p-4 text-green-600 transition-colors duration-300 group-hover:bg-green-600 group-hover:text-white dark:bg-slate-700 dark:text-green-400">

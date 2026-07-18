@@ -1,79 +1,77 @@
-/* eslint-disable */
-/* tailwindcss */
-
-import React from "react";
 import { useDarkMode } from "./DarkModeContext";
 
-const SkillItem = ({ label ,level}) => {
+const SkillItem = ({ label, level, icon }) => {
   return (
-    <li className="group flex gap-2 items-start cursor-pointer">
-      {/* ICON */}
-      <i
-        className="
-          bx bx-badge-check
-          text-green-600
-          text-3xl
-          transition-all duration-300      
-          group-hover:text-[#f87727]
-          group-hover:-translate-y-0.5
-        "
-      />
-
-      {/* TEXT */}
-      <div className="flex flex-col">
-        <div className="font-medium transition-colors ">
-          {label}
-        </div>
-        <div className="text-[12px] text-gray-600">
-          {level}
-        </div>
+    <li className="skill-pill group">
+      <i className={`bx ${icon} skill-pill-icon`} />
+      <div className="skill-pill-text">
+        <span>{label}</span>
+        <small>{level}</small>
       </div>
     </li>
   );
 };
 
 const Skills = () => {
-  const { darkMode, setDarkMode } = useDarkMode();
+  const { darkMode } = useDarkMode();
+
+  const skillGroups = [
+    {
+      title: "Frontend Development",
+      description: "Crafting responsive interfaces with modern frameworks and strong UI systems.",
+      skills: [
+        { label: "CSS", level: "Advanced", icon: "bx-palette" },
+        { label: "HTML", level: "Advanced", icon: "bx-code-alt" },
+        { label: "JavaScript", level: "Advanced", icon: "bx-file" },
+        { label: "React JS", level: "Advanced", icon: "bx-react" },
+        { label: "Tailwind CSS", level: "Advanced", icon: "bx-brush" },
+        { label: "Bootstrap", level: "Advanced", icon: "bx-layout" },
+      ],
+    },
+    {
+      title: "Backend Development",
+      description: "Building reliable and secure systems with scalable architecture and APIs.",
+      skills: [
+        { label: "Node JS", level: "Advanced", icon: "bx-server" },
+        { label: "Spring Boot", level: "Advanced", icon: "bx-data" },
+        { label: "MySQL", level: "Advanced", icon: "bxs-data" },
+        { label: "Spring Security", level: "Advanced", icon: "bx-lock-alt" },
+        { label: "JWT", level: "Advanced", icon: "bx-key" },
+        { label: "Microservices", level: "Advanced", icon: "bx-network-chart" },
+      ],
+    },
+  ];
+
   return (
-    <section className="skills-section p-7" id="skills">
-      <h2 className="text-center text-xl p-10 font-semibold">
-        My Skills
-      </h2>
+    <section className="skills-section" id="skills">
+      <div className="skills-title-wrap">
+        <span className={`skills-eyebrow ${darkMode ? "skills-eyebrow-dark" : ""}`}>Core strengths</span>
+        <h2 className={`text-3xl md:text-4xl font-bold accent-underline accent-orange ${darkMode ? "text-white" : "text-slate-900"}`}>
+          My Skills
+        </h2>
+        <p className={`skills-intro ${darkMode ? "text-slate-300" : "text-slate-600"}`}>
+          I combine thoughtful design, efficient engineering, and modern tooling to deliver polished digital products.
+        </p>
+      </div>
 
-      <div className="flex flex-col md:flex-row gap-10 justify-center items-start">
+      <div className="skills-grid">
+        {skillGroups.map((group) => (
+          <div
+            key={group.title}
+            className={`skills-card ${darkMode ? "skills-card-dark" : ""}`}
+          >
+            <div className="skills-card-head">
+              <h3 className={`text-lg font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>{group.title}</h3>
+              <p className={`text-sm ${darkMode ? "text-slate-300" : "text-slate-600"}`}>{group.description}</p>
+            </div>
 
-        {/* FRONTEND CARD */}
-        <div className={`border  p-4 rounded-lg w-full md:w-1/2 ${darkMode ? "border-white":"border-black"}`}>
-          <h3 className="font-bold text-center mb-4">
-            Frontend Developer Skills
-          </h3>
-
-          <ul className="grid grid-cols-2 gap-3 p-2 text-left">
-            <SkillItem label="CSS" level="advanced"/>
-            <SkillItem label="HTML" level="advanced"/>
-            <SkillItem label="JavaScript" level="advanced" />
-            <SkillItem label="React JS" level="advanced"/>
-            <SkillItem label="Tailwind CSS" level="advanced"/>
-            <SkillItem label="Bootstrap" level="advanced"/>
-          </ul>
-        </div>
-
-        {/* BACKEND CARD */}
-        <div className={`border  p-4 rounded-lg w-full md:w-1/2 ${darkMode ? "border-white":"border-black"}`}>
-          <h3 className="font-bold text-center mb-4">
-            Backend Developer Skills
-          </h3>
-
-          <ul className="grid grid-cols-2 gap-3 p-2 text-left">
-            <SkillItem label="Node JS" level="advanced"/>
-            <SkillItem label="Spring Boot" level="advanced"/>
-            <SkillItem label="MySQL" level="advanced"/>
-            <SkillItem label="Spring Security" level="advanced"/>
-            <SkillItem label="JWT" level="advanced"/>
-            <SkillItem label="Microservices" level="advanced"/>
-          </ul>
-        </div>
-
+            <ul className="skill-list">
+              {group.skills.map((skill) => (
+                <SkillItem key={skill.label} label={skill.label} level={skill.level} icon={skill.icon} />
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </section>
   );

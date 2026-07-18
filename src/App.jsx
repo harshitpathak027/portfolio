@@ -10,6 +10,9 @@ import Expertise from './components/Expertise'
 import Qualifications from './components/Qualifications'
 import CursorTrail from './components/CursorTrail'
 import Contact from './components/Contact'
+import RevealSection from './components/RevealSection'
+import Projects from './components/Projects'
+import BackToTop from './components/BackToTop'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,13 +22,15 @@ function App() {
     <NavBar/>
     <div className='container'>
 
-    <Banner/>
-    <About/>
-    <Skills/>
-    <Expertise/>
-    <Qualifications/>
+    <RevealSection delay={0}><Banner/></RevealSection>
+    <RevealSection delay={80}><About/></RevealSection>
+    <RevealSection delay={120}><Skills/></RevealSection>
+    <RevealSection delay={160}><Expertise/></RevealSection>
+    <RevealSection delay={180}><Projects/></RevealSection>
+    <RevealSection delay={200}><Qualifications/></RevealSection>
     <CursorTrail/>
-    <Contact/>
+    <RevealSection delay={240}><Contact/></RevealSection>
+    <BackToTop />
     </div>
     </>
   )
