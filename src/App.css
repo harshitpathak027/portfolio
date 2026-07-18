@@ -30,7 +30,7 @@
   }
 
   .reveal-section {
-    transform: translateY(16px);
+    transform: none;
   }
 
   .back-to-top-btn {
@@ -42,15 +42,15 @@
 }
 
 .reveal-section {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 700ms ease, transform 700ms ease;
-  will-change: opacity, transform;
+  opacity: 1;
+  transform: none;
+  transition: none;
+  will-change: auto;
 }
 
 .reveal-section.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 .banner {
