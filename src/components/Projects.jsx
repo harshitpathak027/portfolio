@@ -64,35 +64,35 @@ const Projects = () => {
   const filterTabs = ["All", "Full Stack", "Client", "Profiles"];
 
   return (
-    <section className="projects-section px-7 py-16" id="projects">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 text-center">
-        <p className="text-sm uppercase tracking-[0.35em] text-green-500">Projects</p>
-        <h2 className={`text-4xl font-semibold md:text-5xl accent-underline accent-orange ${darkMode ? "text-white" : "text-gray-900"}`}>
+    <section className="projects-section px-4 py-12 sm:px-7 sm:py-16" id="projects">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 text-center">
+        <p className="text-xs uppercase tracking-[0.35em] text-green-500 sm:text-sm">Projects</p>
+        <h2 className={`text-3xl font-semibold sm:text-4xl md:text-5xl accent-underline accent-orange ${darkMode ? "text-white" : "text-gray-900"}`}>
           Selected work and practice
         </h2>
-        <p className={`max-w-3xl text-sm md:text-base ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
+        <p className={`max-w-3xl text-sm leading-6 sm:text-base ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
           A small collection of work that shows how I build, solve, and deliver real user-facing experiences.
         </p>
       </div>
 
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-2 sm:mt-8 sm:gap-3">
         {filterTabs.map((tab) => (
           <button
             key={tab}
             type="button"
             onClick={() => setActiveFilter(tab)}
-            className={`rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300 ${activeFilter === tab ? "border-orange-500 bg-orange-500 text-white shadow-lg shadow-orange-500/20" : darkMode ? "border-slate-700 bg-slate-800 text-gray-200 hover:border-slate-500 hover:bg-slate-700" : "border-gray-300 bg-white text-gray-700 hover:border-gray-400 hover:bg-gray-50"}`}
+            className={`rounded-full border px-3 py-2 text-sm font-medium transition-all duration-300 sm:px-4 ${activeFilter === tab ? "border-orange-500 bg-orange-500 text-white shadow-lg shadow-orange-500/20" : darkMode ? "border-slate-700 bg-slate-800 text-gray-200 hover:border-slate-500 hover:bg-slate-700" : "border-gray-300 bg-white text-gray-700 hover:border-gray-400 hover:bg-gray-50"}`}
           >
             {tab}
           </button>
         ))}
       </div>
 
-      <div className="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-3">
+      <div className="mx-auto mt-8 grid max-w-6xl gap-4 sm:mt-10 sm:gap-6 md:grid-cols-3">
         {visibleProjects.map((project, index) => (
           <article
             key={project.title}
-            className={`group overflow-hidden rounded-3xl border p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${darkMode ? "border-slate-700 bg-slate-800" : "border-gray-200 bg-white"}`}
+            className={`group overflow-hidden rounded-2xl border p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:rounded-3xl sm:p-6 sm:hover:-translate-y-2 ${darkMode ? "border-slate-700 bg-slate-800" : "border-gray-200 bg-white"}`}
             style={{ transitionDelay: `${index * 80}ms` }}
           >
             {project.logo && (
@@ -122,10 +122,10 @@ const Projects = () => {
               <span className="text-sm font-medium text-orange-500">{project.href ? "Profile" : "Featured"}</span>
             </div>
 
-            <h3 className={`mt-5 text-2xl font-semibold accent-underline accent-orange ${darkMode ? "text-white" : "text-gray-900"}`}>
+            <h3 className={`mt-4 text-xl font-semibold sm:mt-5 sm:text-2xl accent-underline accent-orange ${darkMode ? "text-white" : "text-gray-900"}`}>
               {project.title}
             </h3>
-            <p className={`mt-3 text-sm leading-6 ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
+            <p className={`mt-3 text-sm leading-6 sm:text-[15px] ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
               {project.summary}
             </p>
 

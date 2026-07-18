@@ -22,7 +22,7 @@ const Qualifications = () => {
     <section className="qualification-section" id="qualification">
       <div className="qualification-heading">
         <span className={`qualification-pill ${darkMode ? "qualification-pill-dark" : ""}`}>Journey so far</span>
-        <h2 className={`text-3xl md:text-4xl font-bold accent-underline accent-orange ${darkMode ? "text-white" : "text-slate-900"}`}>
+        <h2 className={`text-2xl font-bold sm:text-3xl md:text-4xl accent-underline accent-orange ${darkMode ? "text-white" : "text-slate-900"}`}>
           Qualifications
         </h2>
         <p className={`qualification-subtitle ${darkMode ? "text-slate-300" : "text-slate-600"}`}>

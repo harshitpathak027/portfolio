@@ -46,7 +46,7 @@ const Skills = () => {
     <section className="skills-section" id="skills">
       <div className="skills-title-wrap">
         <span className={`skills-eyebrow ${darkMode ? "skills-eyebrow-dark" : ""}`}>Core strengths</span>
-        <h2 className={`text-3xl md:text-4xl font-bold accent-underline accent-orange ${darkMode ? "text-white" : "text-slate-900"}`}>
+        <h2 className={`text-2xl font-bold sm:text-3xl md:text-4xl accent-underline accent-orange ${darkMode ? "text-white" : "text-slate-900"}`}>
           My Skills
         </h2>
         <p className={`skills-intro ${darkMode ? "text-slate-300" : "text-slate-600"}`}>

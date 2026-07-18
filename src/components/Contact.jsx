@@ -63,7 +63,7 @@ const Contact = () => {
     <section className="contact-section" id="contact">
       <div className="contact-heading">
         <span className={`contact-pill ${darkMode ? "contact-pill-dark" : ""}`}>Let’s connect</span>
-        <h2 className={`text-3xl md:text-4xl font-bold accent-underline accent-orange ${darkMode ? "text-white" : "text-slate-900"}`}>
+        <h2 className={`text-2xl font-bold sm:text-3xl md:text-4xl accent-underline accent-orange ${darkMode ? "text-white" : "text-slate-900"}`}>
           Contact Me
         </h2>
         <p className={`contact-subtitle ${darkMode ? "text-slate-300" : "text-slate-600"}`}>

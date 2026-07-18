@@ -15,10 +15,10 @@ const About = () => {
         <div className={`card about-card ${darkMode ? 'about-card-dark' : ''}`} id="about">
             <div className="about-intro">
                 <span className={`about-pill ${darkMode ? 'about-pill-dark' : ''}`}>Crafting modern web experiences</span>
-                <h2 className={`text-3xl md:text-4xl font-bold accent-underline accent-orange ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                <h2 className={`text-2xl font-bold sm:text-3xl md:text-4xl accent-underline accent-orange ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                     About Me
                 </h2>
-                <p className={`mt-3 max-w-2xl mx-auto text-sm md:text-base ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
+                <p className={`mt-3 max-w-2xl mx-auto text-sm leading-6 sm:text-base ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                     I build polished, high-performing web applications with a strong eye for design, usability, and scalable solutions.
                 </p>
             </div>

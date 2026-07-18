@@ -38,9 +38,9 @@ const NavBar = () => {
         fixed left-0 right-0 z-50
         top-0 md:bottom-auto md:top-0
         flex items-center justify-between
-        px-6 py-3 md:py-3
+        px-4 py-3 md:px-6 md:py-3
         shadow-md
-        gap-4 md:gap-0
+        gap-3 md:gap-0
       "
     >
       {/* Logo */}
@@ -70,8 +70,8 @@ const NavBar = () => {
         <div
           className="
             glass glass-dock
-            flex items-center gap-8 
-            px-6 py-3
+            flex items-center gap-6 
+            px-4 py-3
             rounded-3xl
             shadow-xl
           "

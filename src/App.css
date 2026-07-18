@@ -4,6 +4,32 @@
 
 *{
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    line-height: 1.6;
+  }
+
+  .banner {
+    padding: 3rem 0 1.25rem;
+  }
+
+  .reveal-section {
+    transform: translateY(16px);
+  }
+
+  .back-to-top-btn {
+    right: 0.85rem;
+    bottom: 6rem;
+    width: 46px;
+    height: 46px;
+  }
 }
 
 .reveal-section {
@@ -1460,23 +1486,23 @@ button, .banner-button {
   transition: background-color 200ms ease, border-color 200ms ease;
 }
 
-/* Disable expensive blur and glass effects on smaller screens */
+/* Keep the transparent frosted look on mobile too, but avoid heavy blur on very small screens */
 @media (max-width: 768px) {
   .glass,
   .glass-navbar,
   body.bg-white .glass-dock,
   body.bg-slate-900 .glass-dock {
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
   }
 
   .glass {
-    background-color: rgba(255,255,255,0.92);
+    background-color: rgba(255,255,255,0.86);
   }
 
   body.bg-slate-900 .glass-navbar,
   body.bg-slate-900 .glass-dock {
-    background-color: rgba(15,23,42,0.92);
+    background-color: rgba(15,23,42,0.82);
   }
 }
 
