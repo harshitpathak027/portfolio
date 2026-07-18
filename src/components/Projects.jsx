@@ -3,14 +3,7 @@ import { useDarkMode } from "./DarkModeContext";
 import "boxicons/css/boxicons.min.css";
 
 const projectItems = [
-  {
-    title: "Resume Builder App",
-    category: "Full Stack",
-    summary: "Built with Spring Boot and React, focused on a polished flow and a better user experience.",
-    highlights: ["Spring Boot APIs", "React UI", "User-friendly flow"],
-    image: "/images/WhatsApp%20Image%202026-07-18%20at%2009.59.04.jpeg",
-    imageAlt: "WhatsApp screenshot for resume builder",
-  },
+
   {
     title: "Client E-commerce Work",
     category: "Client",
@@ -18,6 +11,8 @@ const projectItems = [
     highlights: ["Product workflow", "Admin support", "Responsive UI"],
     image: "/images/Screenshot%202026-07-18%20at%209.53.38%E2%80%AFAM.png",
     imageAlt: "Client ecommerce screenshot",
+    imageWrapperClassName: "aspect-[16/10]",
+    imageClassName: "object-cover object-center",
   },
   {
     title: "LeetCode Profile",
@@ -46,6 +41,14 @@ const projectItems = [
     href: "http://geeksforgeeks.org/profile/pathakji",
     logo: "/images/Geeksforgeeks--Streamline-Simple-Icons.png",
     logoAlt: "GeeksforGeeks logo",
+  },
+    {
+    title: "Resume Builder App",
+    category: "Full Stack",
+    summary: "Built with Spring Boot and React, focused on a polished flow and a better user experience.",
+    highlights: ["Spring Boot APIs", "React UI", "User-friendly flow"],
+    image: "/images/WhatsApp%20Image%202026-07-18%20at%2009.59.04.jpeg",
+    imageAlt: "WhatsApp screenshot for resume builder",
   },
 ];
 
@@ -103,11 +106,11 @@ const Projects = () => {
             )}
 
             {project.image && (
-              <div className={`flex items-center justify-center overflow-hidden rounded-2xl ${darkMode ? "border border-slate-700 bg-slate-900/50" : "border border-gray-100 bg-gray-50"}`}>
+              <div className={`mb-5 flex w-full items-center justify-center overflow-hidden rounded-2xl border p-3 ${project.imageWrapperClassName || "h-64"} ${darkMode ? "border-slate-700 bg-slate-900/70" : "border-gray-100 bg-gray-50"}`}>
                 <img
                   src={project.image}
                   alt={project.imageAlt}
-                  className="max-h-72 w-auto max-w-full object-contain object-center bg-white p-3"
+                  className={`h-full w-full rounded-xl bg-white ${project.imageClassName || "object-contain object-center"}`}
                 />
               </div>
             )}
