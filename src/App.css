@@ -1460,6 +1460,26 @@ button, .banner-button {
   transition: background-color 200ms ease, border-color 200ms ease;
 }
 
+/* Disable expensive blur and glass effects on smaller screens */
+@media (max-width: 768px) {
+  .glass,
+  .glass-navbar,
+  body.bg-white .glass-dock,
+  body.bg-slate-900 .glass-dock {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .glass {
+    background-color: rgba(255,255,255,0.92);
+  }
+
+  body.bg-slate-900 .glass-navbar,
+  body.bg-slate-900 .glass-dock {
+    background-color: rgba(15,23,42,0.92);
+  }
+}
+
 /* Navbar-specific glass (lighter/near-transparent in light mode) */
 .glass-navbar {
   background-color: transparent;

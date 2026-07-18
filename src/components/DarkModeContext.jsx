@@ -16,9 +16,12 @@ export const DarkModeProvider = ({ children }) => {
   // Apply dark mode with smooth transition
   useEffect(() => {
     const body = document.body;
-    
-    // Add transition class for smooth animation
-    body.classList.add("transition-mode");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+
+    if (!prefersReducedMotion && !isTouchDevice) {
+      body.classList.add("transition-mode");
+    }
 
     if (darkMode) {
       body.classList.add("bg-slate-900", "text-white");
@@ -31,12 +34,11 @@ export const DarkModeProvider = ({ children }) => {
       localStorage.removeItem("darkMode");
       document.documentElement.style.colorScheme = "light";
     }
-    
-    // Remove transition class after animation completes
+
     const timer = setTimeout(() => {
       body.classList.remove("transition-mode");
     }, 300);
-    
+
     return () => clearTimeout(timer);
   }, [darkMode]);
 

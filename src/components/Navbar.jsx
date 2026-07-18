@@ -1,24 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDarkMode } from "./DarkModeContext";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [toggleClicked, setToggleClicked] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const { darkMode, setDarkMode } = useDarkMode();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
-      setScrollProgress(progress);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const handleDarkModeToggle = () => {
     setToggleClicked(true);
@@ -56,12 +42,7 @@ const NavBar = () => {
         shadow-md
         gap-4 md:gap-0
       "
-      style={{ WebkitBackdropFilter: 'blur(10px)', backdropFilter: 'blur(10px)' }}
     >
-      <div
-        className="pointer-events-none absolute left-0 top-0 h-[3px] bg-orange-500 transition-[width] duration-150"
-        style={{ width: `${scrollProgress}%` }}
-      />
       {/* Logo */}
       <div className="text-2xl hidden md:flex text-red-700 accent-underline accent-orange">
         Harshit Pathak
