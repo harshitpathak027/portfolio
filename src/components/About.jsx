@@ -35,7 +35,7 @@ const About = () => {
                 </div>
 
                 <div className="right-about">
-                    <div className="right-cards mobile-scroll-row">
+                    <div className="right-cards mobile-scroll-row md:grid md:grid-cols-3 md:gap-3">
                         {highlights.map((item) => (
                             <div
                                 key={item.title}

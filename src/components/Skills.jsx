@@ -51,8 +51,8 @@ const Skills = () => {
         </p>
       </div>
 
-      <div className="md:hidden">
-        <div className="skills-grid flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-4 md:grid md:gap-5 md:overflow-visible md:pb-0">
+      <div>
+        <div className="skills-grid flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-4 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:pb-0">
         {skillGroups.map((group) => (
           <div
             key={group.title}

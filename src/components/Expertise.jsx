@@ -52,8 +52,7 @@ const Expertise = () => {
                 </p>
             </div>
             <div className="mx-auto mt-6 max-w-6xl md:mt-10">
-                <div className="md:hidden">
-                    <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-4 scroll-smooth md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:pb-0">
+                <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-4 scroll-smooth md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:pb-0">
                 {expertiseItems.map((item) => (
                     <article
                         key={item.title}
@@ -74,7 +73,6 @@ const Expertise = () => {
                         </div>
                     </article>
                 ))}
-                    </div>
                 </div>
             </div>
         </section>

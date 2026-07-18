@@ -89,8 +89,7 @@ const Projects = () => {
       </div>
 
       <div className="mx-auto mt-4 max-w-6xl sm:mt-6 md:mt-8">
-        <div className="md:hidden">
-          <div className={`flex snap-x snap-mandatory gap-2 overflow-x-auto pb-4 scroll-smooth md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:pb-0 ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
+        <div className={`flex snap-x snap-mandatory gap-2 overflow-x-auto pb-4 scroll-smooth md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:pb-0 ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
           {visibleProjects.map((project, index) => (
             <article
               key={project.title}
@@ -168,7 +167,6 @@ const Projects = () => {
               )}
             </article>
           ))}
-          </div>
         </div>
       </div>
     </section>
