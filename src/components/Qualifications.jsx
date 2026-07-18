@@ -12,7 +12,7 @@ const Qualifications = () => {
   ];
 
   const experienceEntries = [
-    { title: "Software Engineer", institution: "LTIMINDTREE", period: "Feb 2026 - Present" },
+    { title: "Software Engineer", institution: "LTIMINDTREE", period: "Oct 2024 - Present" },
     { title: "Web Developer Trainee", institution: "Keyideas InfoTech", period: "Mar 2024 - Oct 2024" },
   ];
 
