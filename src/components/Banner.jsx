@@ -107,7 +107,7 @@ const Banner=()=>{
               <div className="absolute inset-0 bg-black/60" onClick={() => setShowResumeForm(false)} />
               <form
                 onSubmit={handleResumeSubmit}
-                className={`relative z-10 w-full max-w-md rounded-3xl border border-transparent bg-transparent p-6 shadow-none ${darkMode ? "text-white" : "text-gray-900"}`}
+                className={`relative z-10 w-full max-w-md rounded-3xl border p-6 shadow-2xl ${darkMode ? "border-slate-700 bg-slate-900 text-white" : "border-gray-200 bg-white text-gray-900"}`}
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
