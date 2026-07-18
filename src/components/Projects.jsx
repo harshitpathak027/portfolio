@@ -64,7 +64,7 @@ const Projects = () => {
   const filterTabs = ["All", "Full Stack", "Client", "Profiles"];
 
   return (
-    <section className="projects-section px-4 py-12 sm:px-7 sm:py-16" id="projects">
+    <section className="projects-section px-1.5 py-12 sm:px-7 sm:py-16" id="projects">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 text-center">
         <p className="text-xs uppercase tracking-[0.35em] text-green-500 sm:text-sm">Projects</p>
         <h2 className={`text-3xl font-semibold sm:text-4xl md:text-5xl accent-underline accent-orange ${darkMode ? "text-white" : "text-gray-900"}`}>
@@ -88,29 +88,31 @@ const Projects = () => {
         ))}
       </div>
 
-      <div className="mx-auto mt-8 grid max-w-6xl gap-4 sm:mt-10 sm:gap-6 md:grid-cols-3">
-        {visibleProjects.map((project, index) => (
-          <article
-            key={project.title}
-            className={`group overflow-hidden rounded-2xl border p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:rounded-3xl sm:p-6 sm:hover:-translate-y-2 ${darkMode ? "border-slate-700 bg-slate-800" : "border-gray-200 bg-white"}`}
-            style={{ transitionDelay: `${index * 80}ms` }}
-          >
+      <div className="mx-auto mt-4 max-w-6xl sm:mt-6 md:mt-8">
+        <div className="md:hidden">
+          <div className={`flex snap-x snap-mandatory gap-2 overflow-x-auto pb-4 scroll-smooth md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:pb-0 ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
+          {visibleProjects.map((project, index) => (
+            <article
+              key={project.title}
+              className={`group min-w-[72vw] max-w-[72vw] shrink-0 snap-center overflow-hidden rounded-2xl border p-2.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:min-w-[60vw] sm:max-w-[60vw] sm:rounded-3xl sm:p-3 sm:hover:-translate-y-2 md:min-w-0 md:max-w-none md:p-6 ${darkMode ? "border-slate-700 bg-slate-800" : "border-gray-200 bg-white"}`}
+              style={{ transitionDelay: `${index * 80}ms` }}
+            >
             {project.logo && (
-              <div className={`flex h-24 items-center justify-center rounded-2xl bg-gradient-to-br ${project.category === "Profiles" ? "from-orange-500/20 via-transparent to-transparent" : "from-gray-100 via-transparent to-transparent"} ${darkMode ? "border border-slate-700" : "border border-gray-100"}`}>
+              <div className={`flex h-20 items-center justify-center rounded-2xl bg-gradient-to-br ${project.category === "Profiles" ? "from-orange-500/20 via-transparent to-transparent" : "from-gray-100 via-transparent to-transparent"} ${darkMode ? "border border-slate-700" : "border border-gray-100"}`}>
                 <img
                   src={project.logo}
                   alt={project.logoAlt}
-                  className="h-14 w-14 object-contain"
+                  className="h-12 w-12 object-contain sm:h-14 sm:w-14"
                 />
               </div>
             )}
 
             {project.image && (
-              <div className={`mb-5 flex w-full items-center justify-center overflow-hidden rounded-2xl border p-3 ${project.imageWrapperClassName || "h-64"} ${darkMode ? "border-slate-700 bg-slate-900/70" : "border-gray-100 bg-gray-50"}`}>
+              <div className={`mb-3 flex h-36 w-full items-center justify-center overflow-hidden rounded-2xl border p-2 sm:h-44 sm:p-3 ${project.imageWrapperClassName || ""} ${darkMode ? "border-slate-700 bg-slate-900/70" : "border-gray-100 bg-gray-50"}`}>
                 <img
                   src={project.image}
                   alt={project.imageAlt}
-                  className={`h-full w-full rounded-xl bg-white ${project.imageClassName || "object-contain object-center"}`}
+                  className={`h-full w-full rounded-lg bg-white object-cover object-center ${project.imageClassName || ""}`}
                 />
               </div>
             )}
@@ -122,14 +124,14 @@ const Projects = () => {
               <span className="text-sm font-medium text-orange-500">{project.href ? "Profile" : "Featured"}</span>
             </div>
 
-            <h3 className={`mt-4 text-xl font-semibold sm:mt-5 sm:text-2xl accent-underline accent-orange ${darkMode ? "text-white" : "text-gray-900"}`}>
+            <h3 className={`mt-3 text-lg font-semibold sm:mt-4 sm:text-2xl accent-underline accent-orange ${darkMode ? "text-white" : "text-gray-900"}`}>
               {project.title}
             </h3>
-            <p className={`mt-3 text-sm leading-6 sm:text-[15px] ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
+            <p className={`mt-2 text-sm leading-5 sm:text-[15px] sm:leading-6 ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
               {project.summary}
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-4 flex flex-wrap gap-2 sm:mt-6">
               {project.highlights.map((item) => (
                 <span
                   key={item}
@@ -141,7 +143,7 @@ const Projects = () => {
             </div>
 
             {project.medals && (
-              <div className="mt-5 grid grid-cols-2 gap-3">
+              <div className="mt-4 grid grid-cols-2 gap-2 sm:mt-5 sm:gap-3">
                 {project.medals.map((medal) => (
                   <div
                     key={medal.alt}
@@ -153,19 +155,21 @@ const Projects = () => {
               </div>
             )}
 
-            {project.href && (
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-orange-500 transition-transform duration-300 group-hover:translate-x-1"
-              >
-                Open profile
-                <i className="bx bx-link-external text-base" />
-              </a>
-            )}
-          </article>
-        ))}
+              {project.href && (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-orange-500 transition-transform duration-300 group-hover:translate-x-1 sm:mt-5"
+                >
+                  Open profile
+                  <i className="bx bx-link-external text-base" />
+                </a>
+              )}
+            </article>
+          ))}
+          </div>
+        </div>
       </div>
     </section>
   );

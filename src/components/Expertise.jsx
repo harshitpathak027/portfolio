@@ -51,11 +51,13 @@ const Expertise = () => {
                     Focused on shipping dependable web products, solving algorithmic problems, and delivering real client work with a clean, professional approach.
                 </p>
             </div>
-            <div className="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-3">
+            <div className="mx-auto mt-6 max-w-6xl md:mt-10">
+                <div className="md:hidden">
+                    <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-4 scroll-smooth md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:pb-0">
                 {expertiseItems.map((item) => (
                     <article
                         key={item.title}
-                        className={`group flex min-h-[280px] flex-col justify-between rounded-3xl border p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg accent-glow green accent-animate ${darkMode ? "border-slate-700 bg-slate-800 hover:border-slate-600" : "border-gray-200 bg-white hover:border-gray-300"}`}
+                        className={`group relative flex min-h-[240px] w-[78vw] min-w-[78vw] shrink-0 snap-center flex-col justify-between rounded-3xl border p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md accent-glow green sm:w-[64vw] sm:min-w-[64vw] md:w-auto md:min-w-0 md:flex-1 md:p-7 ${darkMode ? "border-slate-700 bg-slate-800 hover:border-slate-600" : "border-gray-200 bg-white hover:border-gray-300"}`}
                     >
                         <div className="flex items-start justify-between gap-4">
                             <div className="rounded-2xl bg-green-50 p-4 text-green-600 transition-colors duration-300 group-hover:bg-green-600 group-hover:text-white dark:bg-slate-700 dark:text-green-400">
@@ -72,6 +74,8 @@ const Expertise = () => {
                         </div>
                     </article>
                 ))}
+                    </div>
+                </div>
             </div>
         </section>
     )

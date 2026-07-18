@@ -1,13 +1,10 @@
 import { useDarkMode } from "./DarkModeContext";
 
-const SkillItem = ({ label, level, icon }) => {
+const SkillItem = ({ label, icon }) => {
   return (
-    <li className="skill-pill group">
+    <li className="skill-pill">
       <i className={`bx ${icon} skill-pill-icon`} />
-      <div className="skill-pill-text">
-        <span>{label}</span>
-        <small>{level}</small>
-      </div>
+      <span className="skill-pill-label">{label}</span>
     </li>
   );
 };
@@ -54,24 +51,26 @@ const Skills = () => {
         </p>
       </div>
 
-      <div className="skills-grid">
+      <div className="md:hidden">
+        <div className="skills-grid flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-4 md:grid md:gap-5 md:overflow-visible md:pb-0">
         {skillGroups.map((group) => (
           <div
             key={group.title}
-            className={`skills-card ${darkMode ? "skills-card-dark" : ""}`}
+            className={`skills-card min-w-[78vw] max-w-[78vw] shrink-0 snap-center p-3 sm:min-w-[64vw] sm:max-w-[64vw] sm:p-4 md:min-w-0 md:max-w-none md:p-6 ${darkMode ? "skills-card-dark" : ""}`}
           >
-            <div className="skills-card-head">
+            <div className="skills-card-head mb-3">
               <h3 className={`text-lg font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>{group.title}</h3>
               <p className={`text-sm ${darkMode ? "text-slate-300" : "text-slate-600"}`}>{group.description}</p>
             </div>
 
             <ul className="skill-list">
               {group.skills.map((skill) => (
-                <SkillItem key={skill.label} label={skill.label} level={skill.level} icon={skill.icon} />
+                <SkillItem key={skill.label} label={skill.label} icon={skill.icon} />
               ))}
             </ul>
           </div>
         ))}
+        </div>
       </div>
     </section>
   );

@@ -35,11 +35,11 @@ const About = () => {
                 </div>
 
                 <div className="right-about">
-                    <div className="right-cards">
+                    <div className="right-cards mobile-scroll-row">
                         {highlights.map((item) => (
                             <div
                                 key={item.title}
-                                className={`card-item ${darkMode ? 'border border-white/20' : 'border border-slate-200'} accent-glow green accent-animate`}
+                                className={`card-item ${darkMode ? 'border border-white/20' : 'border border-slate-200'} accent-glow green`}
                             >
                                 <div className="item-icon">
                                     <i className={`${item.icon} icon`} />
