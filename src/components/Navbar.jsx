@@ -44,7 +44,7 @@ const NavBar = () => {
       "
     >
       {/* Logo */}
-      <div className="text-2xl hidden md:flex text-red-700 accent-underline accent-orange">
+      <div className="text-2xl hidden md:flex text-orange-500 accent-underline accent-orange">
         Harshit Pathak
       </div>
 
