@@ -862,7 +862,7 @@ body.bg-slate-900 .banner-button.secondary {
     scrollbar-width: none;
     -ms-overflow-style: none;
     gap: 0.7rem;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .right-cards::-webkit-scrollbar {
