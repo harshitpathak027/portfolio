@@ -2,6 +2,23 @@ import React, { useMemo, useState } from "react";
 import { useDarkMode } from "./DarkModeContext";
 import "boxicons/css/boxicons.min.css";
 
+const EARLY_ACCESS_PREFILL =
+  "Hi Harshit, I'd like early access to the Resume Builder App (closed testing).";
+export const EARLY_ACCESS_EVENT = "resume-early-access-request";
+
+const handleRequestEarlyAccess = (e) => {
+  e.preventDefault();
+  window.dispatchEvent(
+    new CustomEvent(EARLY_ACCESS_EVENT, { detail: EARLY_ACCESS_PREFILL })
+  );
+  const target = document.getElementById("contact");
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  } else {
+    window.location.hash = "contact";
+  }
+};
+
 const projectItems = [
 
   {
@@ -49,6 +66,7 @@ const projectItems = [
     highlights: ["Spring Boot APIs", "React UI", "User-friendly flow"],
     image: "/images/WhatsApp%20Image%202026-07-18%20at%2009.59.04.jpeg",
     imageAlt: "WhatsApp screenshot for resume builder",
+    earlyAccess: true,
   },
 ];
 
@@ -93,7 +111,7 @@ const Projects = () => {
           {visibleProjects.map((project, index) => (
             <article
               key={project.title}
-              className={`group min-w-[72vw] max-w-[72vw] shrink-0 snap-center overflow-hidden rounded-2xl border p-2.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:min-w-[60vw] sm:max-w-[60vw] sm:rounded-3xl sm:p-3 sm:hover:-translate-y-2 md:min-w-0 md:max-w-none md:p-6 ${darkMode ? "border-slate-700 bg-slate-800" : "border-gray-200 bg-white"}`}
+              className={`group relative min-w-[72vw] max-w-[72vw] shrink-0 snap-center overflow-hidden rounded-2xl border p-2.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:min-w-[60vw] sm:max-w-[60vw] sm:rounded-3xl sm:p-3 sm:hover:-translate-y-2 md:min-w-0 md:max-w-none md:p-6 ${darkMode ? "border-slate-700 bg-slate-800" : "border-gray-200 bg-white"}`}
               style={{ transitionDelay: `${index * 80}ms` }}
             >
             {project.logo && (
@@ -107,7 +125,13 @@ const Projects = () => {
             )}
 
             {project.image && (
-              <div className={`mb-3 flex h-36 w-full items-center justify-center overflow-hidden rounded-2xl border p-2 sm:h-44 sm:p-3 ${project.imageWrapperClassName || ""} ${darkMode ? "border-slate-700 bg-slate-900/70" : "border-gray-100 bg-gray-50"}`}>
+              <div className={`relative mb-3 flex h-36 w-full items-center justify-center overflow-hidden rounded-2xl border p-2 sm:h-44 sm:p-3 ${project.imageWrapperClassName || ""} ${darkMode ? "border-slate-700 bg-slate-900/70" : "border-gray-100 bg-gray-50"}`}>
+                {project.earlyAccess && (
+                  <span className="absolute left-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-orange-500 px-2.5 py-1 text-[11px] font-semibold text-white shadow-sm">
+                    <i className="bx bxs-circle text-[6px]" />
+                    Closed testing
+                  </span>
+                )}
                 <img
                   src={project.image}
                   alt={project.imageAlt}
@@ -151,6 +175,27 @@ const Projects = () => {
                     <img src={medal.src} alt={medal.alt} className="h-28 w-full rounded-xl object-cover" />
                   </div>
                 ))}
+              </div>
+            )}
+
+            {project.earlyAccess && (
+              <div className={`mt-4 flex flex-col items-start gap-3 rounded-2xl border p-4 sm:mt-5 ${darkMode ? "border-slate-700 bg-slate-900/60" : "border-orange-100 bg-orange-50/60"}`}>
+                <div className="max-w-none">
+                  <p className={`max-w-none text-sm font-medium leading-5 ${darkMode ? "text-gray-200" : "text-gray-800"}`}>
+                    Want to be one of the first to try it?
+                  </p>
+                  <p className={`mt-1 max-w-none text-xs leading-5 sm:text-sm ${darkMode ? "text-gray-400" : "text-gray-600"}`}>
+                    It's in closed testing right now — Click on Below Button and I'll gladly add you in.
+                  </p>
+                </div>
+                <a
+                  href="#contact"
+                  onClick={handleRequestEarlyAccess}
+                  className="inline-flex w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-orange-500 px-4 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5 hover:bg-orange-600 sm:w-auto"
+                >
+                  Request early access
+                  <i className="bx bx-envelope text-base" />
+                </a>
               </div>
             )}
 

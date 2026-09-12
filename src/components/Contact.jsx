@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDarkMode } from "./DarkModeContext";
 import emailjs from "emailjs-com";
+import { EARLY_ACCESS_EVENT } from "./Projects";
 
 const Contact = () => {
   const { darkMode } = useDarkMode();
@@ -10,6 +11,20 @@ const Contact = () => {
     email: "",
     message: "",
   });
+
+  // Listen for the "Request early access" click on the Projects section.
+  // Since Contact stays mounted the whole time (it's a section on the same
+  // page, not a separate route), we listen live instead of only checking
+  // once on mount — that way a plain refresh never shows the message, only
+  // an actual button click does.
+  useEffect(() => {
+    const handleEarlyAccessRequest = (event) => {
+      setform((prev) => ({ ...prev, message: event.detail }));
+    };
+    window.addEventListener(EARLY_ACCESS_EVENT, handleEarlyAccessRequest);
+    return () =>
+      window.removeEventListener(EARLY_ACCESS_EVENT, handleEarlyAccessRequest);
+  }, []);
 
   const handleChange = (e) => {
     setform({ ...form, [e.target.name]: e.target.value });
