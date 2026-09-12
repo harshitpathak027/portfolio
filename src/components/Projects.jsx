@@ -41,18 +41,13 @@ const projectItems = [
         src: "/images/resume-builder-preview-1.png",
         alt: "Resume Builder — pick a style screen",
       },
+      {
+        src: "/images/resume-builder-preview-5.png",
+        alt: "Resume Builder — pick a style screen",
+      },
     ],
   },
-  {
-    title: "Client E-commerce Work",
-    category: "Client",
-    summary: "Delivered practical features for shopping and admin workflows with usability in mind.",
-    highlights: ["Product workflow", "Admin support", "Responsive UI"],
-    image: "/images/Screenshot%202026-07-18%20at%209.53.38%E2%80%AFAM.png",
-    imageAlt: "Client ecommerce screenshot",
-    imageWrapperClassName: "aspect-[16/10]",
-    imageClassName: "object-cover object-center",
-  },
+ 
   {
     title: "LeetCode Profile",
     category: "Profiles",
@@ -81,7 +76,16 @@ const projectItems = [
     logo: "/images/Geeksforgeeks--Streamline-Simple-Icons.png",
     logoAlt: "GeeksforGeeks logo",
   },
-
+ {
+    title: "Client E-commerce Work",
+    category: "Client",
+    summary: "Delivered practical features for shopping and admin workflows with usability in mind.",
+    highlights: ["Product workflow", "Admin support", "Responsive UI"],
+    image: "/images/Screenshot%202026-07-18%20at%209.53.38%E2%80%AFAM.png",
+    imageAlt: "Client ecommerce screenshot",
+    imageWrapperClassName: "aspect-[16/10]",
+    imageClassName: "object-cover object-center",
+  },
 ];
 
 const filterTabs = ["All", "Full Stack", "Client", "Profiles"];
