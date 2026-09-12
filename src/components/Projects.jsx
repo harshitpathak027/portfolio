@@ -30,7 +30,7 @@ const projectItems = [
     earlyAccess: true,
     previewImages: [
       {
-        src: "/images/resume-builder-preview-1.png",
+        src: "/images/resume-builder-preview-4.png",
         alt: "Resume Builder — section progress screen",
       },
       {
@@ -38,7 +38,7 @@ const projectItems = [
         alt: "Resume Builder — My Resumes screen",
       },
       {
-        src: "/images/resume-builder-preview-3.png",
+        src: "/images/resume-builder-preview-1.png",
         alt: "Resume Builder — pick a style screen",
       },
     ],
