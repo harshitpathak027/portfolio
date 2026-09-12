@@ -25,7 +25,7 @@ const projectItems = [
     category: "Full Stack",
     summary: "Built with Spring Boot and React, focused on a polished flow and a better user experience.",
     highlights: ["Spring Boot APIs", "React UI", "User-friendly flow"],
-    image: "/images/WhatsApp%20Image%202026-07-18%20at%2009.59.04.jpeg",
+    image: "/images/applogo.jpeg",
     imageAlt: "WhatsApp screenshot for resume builder",
     earlyAccess: true,
     previewImages: [
