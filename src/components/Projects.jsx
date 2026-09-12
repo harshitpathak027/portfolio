@@ -129,17 +129,24 @@ const ProjectCard = ({ project, index }) => {
 
   return (
     <article
-      className={`group relative min-w-[72vw] max-w-[72vw] shrink-0 snap-center overflow-hidden rounded-2xl border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:min-w-[60vw] sm:max-w-[60vw] sm:rounded-3xl sm:hover:-translate-y-2 md:min-w-0 md:max-w-none [perspective:1800px] ${darkMode ? "border-slate-700 bg-slate-800" : "border-gray-200 bg-white"}`}
-      style={{ transitionDelay: `${index * 80}ms` }}
+      className={`group relative flex min-h-[620px] min-w-[72vw] max-w-[72vw] shrink-0 snap-center flex-col overflow-hidden rounded-2xl border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:min-h-[640px] sm:min-w-[60vw] sm:max-w-[60vw] sm:rounded-3xl sm:hover:-translate-y-2 md:min-h-[620px] md:min-w-0 md:max-w-none [perspective:1800px] ${darkMode ? "border-slate-700 bg-slate-800" : "border-gray-200 bg-white"}`}
+      style={{
+        transitionDelay: `${index * 80}ms`,
+        transform: "translateZ(0)",
+        WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+      }}
     >
       <div
-        className="relative transition-transform duration-700 ease-out [transform-style:preserve-3d]"
+        className="relative flex-1 transition-transform duration-700 ease-out [transform-style:preserve-3d]"
         style={{ transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
       >
         {/* FRONT FACE */}
-        <div className="p-2.5 sm:p-3 md:p-6" style={backfaceHiddenStyle}>
+        <div
+          className={`absolute inset-0 flex flex-col p-2.5 sm:p-3 md:p-6 ${flipped ? "pointer-events-none" : "pointer-events-auto"}`}
+          style={backfaceHiddenStyle}
+        >
           {project.logo && (
-            <div className={`flex h-20 items-center justify-center rounded-2xl bg-gradient-to-br ${project.category === "Profiles" ? "from-orange-500/20 via-transparent to-transparent" : "from-gray-100 via-transparent to-transparent"} ${darkMode ? "border border-slate-700" : "border border-gray-100"}`}>
+            <div className={`mb-3 flex h-36 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br sm:h-44 sm:mb-3 ${project.category === "Profiles" ? "from-orange-500/20 via-transparent to-transparent" : "from-gray-100 via-transparent to-transparent"} ${darkMode ? "border border-slate-700" : "border border-gray-100"}`}>
               <img
                 src={project.logo}
                 alt={project.logoAlt}
@@ -149,7 +156,7 @@ const ProjectCard = ({ project, index }) => {
           )}
 
           {project.image && (
-            <div className={`relative mb-3 flex h-36 w-full items-center justify-center overflow-hidden rounded-2xl border p-2 sm:h-44 sm:p-3 ${project.imageWrapperClassName || ""} ${darkMode ? "border-slate-700 bg-slate-900/70" : "border-gray-100 bg-gray-50"}`}>
+            <div className={`relative mb-3 flex h-36 w-full shrink-0 items-center justify-center overflow-hidden rounded-2xl border p-2 sm:h-44 sm:p-3 ${project.imageWrapperClassName || ""} ${darkMode ? "border-slate-700 bg-slate-900/70" : "border-gray-100 bg-gray-50"}`}>
               {project.earlyAccess && (
                 <span className="absolute left-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-orange-500 px-2.5 py-1 text-[11px] font-semibold text-white shadow-sm">
                   <i className="bx bxs-circle text-[6px]" />
@@ -174,21 +181,21 @@ const ProjectCard = ({ project, index }) => {
             </div>
           )}
 
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex shrink-0 items-center justify-between gap-3">
             <span className={`rounded-full px-3 py-1 text-xs font-semibold ${darkMode ? "bg-slate-700 text-gray-200" : "bg-gray-100 text-gray-600"}`}>
               {project.category}
             </span>
             <span className="text-sm font-medium text-orange-500">{project.href ? "Profile" : "Featured"}</span>
           </div>
 
-          <h3 className={`mt-3 text-lg font-semibold sm:mt-4 sm:text-2xl accent-underline accent-orange ${darkMode ? "text-white" : "text-gray-900"}`}>
+          <h3 className={`mt-3 shrink-0 text-lg font-semibold sm:mt-4 sm:text-2xl accent-underline accent-orange ${darkMode ? "text-white" : "text-gray-900"}`}>
             {project.title}
           </h3>
-          <p className={`mt-2 text-sm leading-5 sm:text-[15px] sm:leading-6 ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
+          <p className={`mt-2 shrink-0 text-sm leading-5 sm:text-[15px] sm:leading-6 ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
             {project.summary}
           </p>
 
-          <div className="mt-4 flex flex-wrap gap-2 sm:mt-6">
+          <div className="mt-4 flex shrink-0 flex-wrap gap-2 sm:mt-6">
             {project.highlights.map((item) => (
               <span
                 key={item}
@@ -200,7 +207,7 @@ const ProjectCard = ({ project, index }) => {
           </div>
 
           {project.medals && (
-            <div className="mt-4 grid grid-cols-2 gap-2 sm:mt-5 sm:gap-3">
+            <div className="mt-4 grid shrink-0 grid-cols-2 gap-2 sm:mt-5 sm:gap-3">
               {project.medals.map((medal) => (
                 <div
                   key={medal.alt}
@@ -213,7 +220,7 @@ const ProjectCard = ({ project, index }) => {
           )}
 
           {project.earlyAccess && (
-            <div className={`mt-4 flex flex-col items-start gap-3 rounded-2xl border p-4 sm:mt-5 ${darkMode ? "border-slate-700 bg-slate-900/60" : "border-orange-100 bg-orange-50/60"}`}>
+            <div className={`mt-auto flex flex-col items-start gap-3 rounded-2xl border p-4 pt-4 ${darkMode ? "border-slate-700 bg-slate-900/60" : "border-orange-100 bg-orange-50/60"}`}>
               <div className="max-w-none">
                 <p className={`max-w-none text-sm font-medium leading-5 ${darkMode ? "text-gray-200" : "text-gray-800"}`}>
                   Want to be one of the first to try it?
@@ -238,7 +245,7 @@ const ProjectCard = ({ project, index }) => {
               href={project.href}
               target="_blank"
               rel="noreferrer"
-              className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-orange-500 transition-transform duration-300 group-hover:translate-x-1 sm:mt-5"
+              className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-medium text-orange-500 transition-transform duration-300 group-hover:translate-x-1"
             >
               Open profile
               <i className="bx bx-link-external text-base" />
@@ -249,7 +256,7 @@ const ProjectCard = ({ project, index }) => {
         {/* BACK FACE — only exists for projects with a preview gallery */}
         {images.length > 0 && (
           <div
-            className="absolute inset-0 flex flex-col p-3 sm:p-4"
+            className={`absolute inset-0 flex flex-col p-3 sm:p-4 ${flipped ? "pointer-events-auto" : "pointer-events-none"}`}
             style={{ ...backfaceHiddenStyle, transform: "rotateY(180deg)" }}
           >
             <div className="mb-2 flex items-center justify-between gap-2">
@@ -281,14 +288,17 @@ const ProjectCard = ({ project, index }) => {
             </div>
 
             <div
-              className={`relative min-h-0 flex-1 touch-pan-y overflow-hidden rounded-2xl border bg-transparent ${darkMode ? "border-slate-700" : "border-gray-100"}`}
+              className="relative my-auto max-h-[480px] min-h-0 w-full touch-pan-y overflow-hidden rounded-2xl bg-transparent sm:max-h-[620px]"
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
             >
               <div
-                className="flex h-full transition-transform duration-300 ease-out"
-                style={{ transform: `translateX(-${previewIndex * 100}%)` }}
+                className="flex h-full"
+                style={{
+                  transform: `translateX(-${previewIndex * 100}%)`,
+                  transition: "transform 450ms cubic-bezier(0.22, 1, 0.36, 1)",
+                }}
               >
                 {images.map((img) => (
                   <div key={img.src} className="flex h-full w-full shrink-0 items-center justify-center p-2">
@@ -310,7 +320,7 @@ const ProjectCard = ({ project, index }) => {
                     aria-label="Previous image"
                     style={{
                       position: "absolute",
-                      left: 8,
+                      left: 0,
                       top: "50%",
                       transform: "translateY(-50%)",
                       height: 28,
@@ -335,7 +345,7 @@ const ProjectCard = ({ project, index }) => {
                     aria-label="Next image"
                     style={{
                       position: "absolute",
-                      right: 8,
+                      right: 0,
                       top: "50%",
                       transform: "translateY(-50%)",
                       height: 28,
@@ -430,7 +440,7 @@ const Projects = () => {
       </div>
 
       <div className="mx-auto mt-4 max-w-6xl sm:mt-6 md:mt-8">
-        <div className={`flex snap-x snap-mandatory gap-2 overflow-x-auto pb-4 scroll-smooth md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:pb-0 ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
+        <div className={`flex snap-x snap-mandatory items-stretch gap-2 overflow-x-auto pb-4 scroll-smooth md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:pb-0 ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
           {visibleProjects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}
