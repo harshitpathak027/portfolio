@@ -25,7 +25,7 @@ const projectItems = [
     category: "Full Stack",
     summary: "Built with Spring Boot and React, focused on a polished flow and a better user experience.",
     highlights: ["Spring Boot APIs", "React UI", "User-friendly flow"],
-    image: "/images/applogo.jpeg",
+    image: "/images/WhatsApp%20Image%202026-07-18%20at%2009.59.04.jpeg",
     imageAlt: "WhatsApp screenshot for resume builder",
     earlyAccess: true,
     previewImages: [
@@ -149,8 +149,8 @@ const ProjectCard = ({ project, index }) => {
       >
         {/* FRONT FACE — drives the card's height */}
         <div
-          className={`flex flex-col p-2.5 sm:p-3 md:p-5 ${flipped ? "pointer-events-none" : "pointer-events-auto"}`}
-          style={backfaceHiddenStyle}
+          className={`relative flex flex-col p-2.5 sm:p-3 md:p-5 ${flipped ? "pointer-events-none" : "pointer-events-auto"}`}
+          style={{ ...backfaceHiddenStyle, transform: "rotateY(0deg)" }}
         >
           {project.logo && (
             <div className={`mb-2.5 flex h-28 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br sm:h-32 sm:mb-3 ${project.category === "Profiles" ? "from-orange-500/20 via-transparent to-transparent" : "from-gray-100 via-transparent to-transparent"} ${darkMode ? "border border-slate-700" : "border border-gray-100"}`}>
