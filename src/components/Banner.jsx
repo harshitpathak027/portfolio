@@ -6,9 +6,10 @@ import { useDarkMode } from "./DarkModeContext";
 const Banner=()=>{
   const { darkMode } = useDarkMode();
   const rotatingRoles = [
-    "Full Stack Web Developer",
-    "Spring Boot + React Builder",
-    "Client-Focused Problem Solver",
+    "Full Stack Web Application",
+    "Spring Boot + React Builder App",
+    "Client-Focused Application",
+    "Android App with React Native",
   ];
   const quickTags = ["React", "Spring Boot", "Tailwind", "UI/UX"];
   const [showResumeForm, setShowResumeForm] = useState(false);
