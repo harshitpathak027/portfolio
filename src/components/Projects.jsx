@@ -25,7 +25,7 @@ const projectItems = [
     category: "Full Stack",
     summary: "Built with Spring Boot and React, focused on a polished flow and a better user experience.",
     highlights: ["Spring Boot APIs", "React UI", "User-friendly flow"],
-    image: "/images/WhatsApp%20Image%202026-07-18%20at%2009.59.04.jpeg",
+    image: "/images/applogo.jpeg",
     imageAlt: "WhatsApp screenshot for resume builder",
     earlyAccess: true,
     previewImages: [
@@ -129,24 +129,31 @@ const ProjectCard = ({ project, index }) => {
 
   return (
     <article
-      className={`group relative flex min-h-[620px] min-w-[72vw] max-w-[72vw] shrink-0 snap-center flex-col overflow-hidden rounded-2xl border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:min-h-[640px] sm:min-w-[60vw] sm:max-w-[60vw] sm:rounded-3xl sm:hover:-translate-y-2 md:min-h-[620px] md:min-w-0 md:max-w-none [perspective:1800px] ${darkMode ? "border-slate-700 bg-slate-800" : "border-gray-200 bg-white"}`}
+      className={`group relative flex min-h-[420px] min-w-[72vw] max-w-[72vw] shrink-0 snap-center flex-col overflow-hidden rounded-2xl border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:min-h-[440px] sm:min-w-[60vw] sm:max-w-[60vw] sm:rounded-3xl sm:hover:-translate-y-2 md:min-h-0 md:min-w-0 md:max-w-none [perspective:1800px] ${darkMode ? "border-slate-700 bg-slate-800" : "border-gray-200 bg-white"}`}
       style={{
         transitionDelay: `${index * 80}ms`,
         transform: "translateZ(0)",
         WebkitMaskImage: "-webkit-radial-gradient(white, black)",
       }}
     >
+      {/*
+        FLIP CONTAINER: the front face is normal-flow (not absolutely
+        positioned), so it's what determines the card's real height —
+        no more forced-tall gaps. The back face is an absolute overlay
+        sized to match that same box; its images use object-contain so
+        they shrink to fit instead of dictating the card's height.
+      */}
       <div
-        className="relative flex-1 transition-transform duration-700 ease-out [transform-style:preserve-3d]"
+        className="relative w-full transition-transform duration-700 ease-out [transform-style:preserve-3d]"
         style={{ transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
       >
-        {/* FRONT FACE */}
+        {/* FRONT FACE — drives the card's height */}
         <div
-          className={`absolute inset-0 flex flex-col p-2.5 sm:p-3 md:p-6 ${flipped ? "pointer-events-none" : "pointer-events-auto"}`}
+          className={`flex flex-col p-2.5 sm:p-3 md:p-5 ${flipped ? "pointer-events-none" : "pointer-events-auto"}`}
           style={backfaceHiddenStyle}
         >
           {project.logo && (
-            <div className={`mb-3 flex h-36 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br sm:h-44 sm:mb-3 ${project.category === "Profiles" ? "from-orange-500/20 via-transparent to-transparent" : "from-gray-100 via-transparent to-transparent"} ${darkMode ? "border border-slate-700" : "border border-gray-100"}`}>
+            <div className={`mb-2.5 flex h-28 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br sm:h-32 sm:mb-3 ${project.category === "Profiles" ? "from-orange-500/20 via-transparent to-transparent" : "from-gray-100 via-transparent to-transparent"} ${darkMode ? "border border-slate-700" : "border border-gray-100"}`}>
               <img
                 src={project.logo}
                 alt={project.logoAlt}
@@ -156,46 +163,55 @@ const ProjectCard = ({ project, index }) => {
           )}
 
           {project.image && (
-            <div className={`relative mb-3 flex h-36 w-full shrink-0 items-center justify-center overflow-hidden rounded-2xl border p-2 sm:h-44 sm:p-3 ${project.imageWrapperClassName || ""} ${darkMode ? "border-slate-700 bg-slate-900/70" : "border-gray-100 bg-gray-50"}`}>
-              {project.earlyAccess && (
-                <span className="absolute left-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-orange-500 px-2.5 py-1 text-[11px] font-semibold text-white shadow-sm">
-                  <i className="bx bxs-circle text-[6px]" />
-                  Closed testing
-                </span>
-              )}
+            <div className={`relative mx-auto mb-2.5 flex h-28 shrink-0 items-center justify-center overflow-hidden rounded-2xl border p-2 sm:h-32 ${
+              project.imageWrapperClassName ? `w-full ${project.imageWrapperClassName}` : "w-28 sm:w-32"
+            } ${darkMode ? "border-slate-700 bg-slate-900/70" : "border-gray-100 bg-gray-50"}`}>
               <img
                 src={project.image}
                 alt={project.imageAlt}
                 className={`h-full w-full rounded-lg bg-white object-cover object-center ${project.imageClassName || ""}`}
               />
-              {images.length > 0 && (
-                <button
-                  type="button"
-                  onClick={openPreview}
-                  className="absolute bottom-3 right-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm transition-colors hover:bg-black/75"
-                >
-                  <i className="bx bx-fullscreen text-sm" />
-                  Preview
-                </button>
-              )}
             </div>
           )}
 
-          <div className="flex shrink-0 items-center justify-between gap-3">
-            <span className={`rounded-full px-3 py-1 text-xs font-semibold ${darkMode ? "bg-slate-700 text-gray-200" : "bg-gray-100 text-gray-600"}`}>
-              {project.category}
-            </span>
+          {images.length > 0 && (
+            <button
+              type="button"
+              onClick={openPreview}
+              className={`group/preview mx-auto mb-2.5 inline-flex w-fit items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-all duration-300 hover:-translate-y-0.5 ${
+                darkMode
+                  ? "border-orange-500/40 bg-orange-500/10 text-orange-300 hover:border-orange-400 hover:bg-orange-500/20"
+                  : "border-orange-200 bg-orange-50 text-orange-600 hover:border-orange-300 hover:bg-orange-100"
+              }`}
+            >
+              <i className="bx bx-fullscreen text-sm transition-transform duration-300 group-hover/preview:scale-110" />
+              Preview screens
+            </button>
+          )}
+
+          <div className="flex shrink-0 flex-wrap items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className={`rounded-full px-3 py-1 text-xs font-semibold ${darkMode ? "bg-slate-700 text-gray-200" : "bg-gray-100 text-gray-600"}`}>
+                {project.category}
+              </span>
+              {project.earlyAccess && (
+                <span className="inline-flex items-center gap-1 rounded-full bg-orange-500 px-2.5 py-1 text-[11px] font-semibold text-white">
+                  <i className="bx bxs-circle text-[6px]" />
+                  Closed testing
+                </span>
+              )}
+            </div>
             <span className="text-sm font-medium text-orange-500">{project.href ? "Profile" : "Featured"}</span>
           </div>
 
-          <h3 className={`mt-3 shrink-0 text-lg font-semibold sm:mt-4 sm:text-2xl accent-underline accent-orange ${darkMode ? "text-white" : "text-gray-900"}`}>
+          <h3 className={`mt-2 shrink-0 text-lg font-semibold sm:mt-3 sm:text-2xl accent-underline accent-orange ${darkMode ? "text-white" : "text-gray-900"}`}>
             {project.title}
           </h3>
-          <p className={`mt-2 shrink-0 text-sm leading-5 sm:text-[15px] sm:leading-6 ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
+          <p className={`mt-1.5 shrink-0 text-sm leading-5 sm:text-[15px] sm:leading-6 ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
             {project.summary}
           </p>
 
-          <div className="mt-4 flex shrink-0 flex-wrap gap-2 sm:mt-6">
+          <div className="mt-3 flex shrink-0 flex-wrap gap-2 sm:mt-4">
             {project.highlights.map((item) => (
               <span
                 key={item}
@@ -207,28 +223,23 @@ const ProjectCard = ({ project, index }) => {
           </div>
 
           {project.medals && (
-            <div className="mt-4 grid shrink-0 grid-cols-2 gap-2 sm:mt-5 sm:gap-3">
+            <div className="mt-3 grid shrink-0 grid-cols-2 gap-2 sm:mt-4 sm:gap-3">
               {project.medals.map((medal) => (
                 <div
                   key={medal.alt}
                   className={`overflow-hidden rounded-2xl border p-2 ${darkMode ? "border-slate-700 bg-slate-900/50" : "border-gray-200 bg-gray-50"}`}
                 >
-                  <img src={medal.src} alt={medal.alt} className="h-28 w-full rounded-xl object-cover" />
+                  <img src={medal.src} alt={medal.alt} className="h-20 w-full rounded-xl object-cover" />
                 </div>
               ))}
             </div>
           )}
 
           {project.earlyAccess && (
-            <div className={`mt-auto flex flex-col items-start gap-3 rounded-2xl border p-4 pt-4 ${darkMode ? "border-slate-700 bg-slate-900/60" : "border-orange-100 bg-orange-50/60"}`}>
-              <div className="max-w-none">
-                <p className={`max-w-none text-sm font-medium leading-5 ${darkMode ? "text-gray-200" : "text-gray-800"}`}>
-                  Want to be one of the first to try it?
-                </p>
-                <p className={`mt-1 max-w-none text-xs leading-5 sm:text-sm ${darkMode ? "text-gray-400" : "text-gray-600"}`}>
-                  It's in closed testing right now — drop me a note and I'll gladly add you in.
-                </p>
-              </div>
+            <div className={`mt-4 flex flex-col items-start gap-2.5 rounded-2xl border p-3 ${darkMode ? "border-slate-700 bg-slate-900/60" : "border-orange-100 bg-orange-50/60"}`}>
+              <p className={`max-w-none text-sm font-medium leading-5 ${darkMode ? "text-gray-200" : "text-gray-800"}`}>
+                Want early access? It's in closed testing — drop me a note.
+              </p>
               <a
                 href="#contact"
                 onClick={handleRequestEarlyAccess}
@@ -245,7 +256,7 @@ const ProjectCard = ({ project, index }) => {
               href={project.href}
               target="_blank"
               rel="noreferrer"
-              className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-medium text-orange-500 transition-transform duration-300 group-hover:translate-x-1"
+              className="mt-3 inline-flex items-center gap-2 pt-3 text-sm font-medium text-orange-500 transition-transform duration-300 group-hover:translate-x-1"
             >
               Open profile
               <i className="bx bx-link-external text-base" />
@@ -253,7 +264,7 @@ const ProjectCard = ({ project, index }) => {
           )}
         </div>
 
-        {/* BACK FACE — only exists for projects with a preview gallery */}
+        {/* BACK FACE — absolute overlay, fits inside the front face's height */}
         {images.length > 0 && (
           <div
             className={`absolute inset-0 flex flex-col p-3 sm:p-4 ${flipped ? "pointer-events-auto" : "pointer-events-none"}`}
@@ -287,8 +298,13 @@ const ProjectCard = ({ project, index }) => {
               </button>
             </div>
 
+            {/*
+              Fills whatever height the card ends up with (set by the
+              front face) instead of a fixed max-h — keeps the gallery
+              proportioned correctly across breakpoints automatically.
+            */}
             <div
-              className="relative my-auto max-h-[480px] min-h-0 w-full touch-pan-y overflow-hidden rounded-2xl bg-transparent sm:max-h-[620px]"
+              className="relative min-h-0 w-full flex-1 touch-pan-y overflow-hidden rounded-2xl bg-transparent"
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
