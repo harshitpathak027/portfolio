@@ -238,7 +238,7 @@ const ProjectCard = ({ project, index }) => {
           {project.earlyAccess && (
             <div className={`mt-4 flex flex-col items-start gap-2.5 rounded-2xl border p-3 ${darkMode ? "border-slate-700 bg-slate-900/60" : "border-orange-100 bg-orange-50/60"}`}>
               <p className={`max-w-none text-sm font-medium leading-5 ${darkMode ? "text-gray-200" : "text-gray-800"}`}>
-                Want early access? It's in closed testing — drop me a note.
+                Want early access? It's in closed testing — Click on Button.
               </p>
               <a
                 href="#contact"
