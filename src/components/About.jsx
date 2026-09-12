@@ -6,7 +6,7 @@ const About = () => {
     const { darkMode } = useDarkMode();
 
     const highlights = [
-        { icon: "bx bx-check-shield", title: "Experience", value: "1+ Years" },
+        { icon: "bx bx-check-shield", title: "Experience", value: "2+ Years" },
         { icon: "bx bx-badge-check", title: "Projects", value: "5+ Delivered" },
         { icon: "bx bx-happy-beaming", title: "DSA", value: "1000+ Problems" },
     ];
